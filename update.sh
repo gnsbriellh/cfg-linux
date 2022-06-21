@@ -61,3 +61,36 @@ https://extensions.gnome.org/extension/7/removable-drive-menu/ \
 https://extensions.gnome.org/extension/906/sound-output-device-chooser/ \
 https://extensions.gnome.org/extension/19/user-themes/
 
+
+#!/bin/bash
+
+## Customize Terminal ##
+
+## Update the System ##
+	
+	#sudo pacman -Syu -y
+	
+## Install Softwares (Pacman) ##
+
+	#sudo pacman -S git --noconfirm
+
+
+## Install Softwares (AUR) ##
+	
+	#Google-Chrome
+		git clone https://aur.archlinux.org/google-chrome.git
+		sudo chmod 777 google-chrome ; cd google-chrome ; makepkg -s
+		mv *.deb google_chrome.deb ; mv *.zst google_chrome.zst
+		sudo pacman -U google_chrome.zst --noconfirm
+	
+## Install Softwares (Snap) ##
+
+## Install Softwares (Flatpak) ##
+
+## Install Extentions (Gnome Desktop Only) ##
+
+	#sensible-browser \
+		#https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep \
+		#https://extensions.gnome.org/extension/7/removable-drive-menu/ \
+		#https://extensions.gnome.org/extension/906/sound-output-device-chooser/ \
+		#https://extensions.gnome.org/extension/19/user-themes/
