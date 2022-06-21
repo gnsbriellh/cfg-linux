@@ -33,7 +33,7 @@
 	sudo pacman -S discord 		--noconfirm
 	sudo pacman -S gnome-tweaks 	--noconfirm
 	sudo pacman -S thunderbird 	--noconfirm
-	sudo pacman -S snapd 		--noconfirm
+	sudo pacman -S snapd 		--noconfirm ; sudo ln -s /var/lib/snapd/snap /snap
 	sudo pacman -S chromium		--noconfirm
 	sudo pacman -S telegram-desktop --noconfirm
 
@@ -53,7 +53,7 @@
 
 ## Install Softwares (Snap) ##
 
-	sudo snap install code
+	sudo snap install code --classic
 	sudo snap install spotify
 
 ## Install Softwares (Flatpak) ##
