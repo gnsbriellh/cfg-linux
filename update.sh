@@ -21,20 +21,21 @@
 
 ## Update the System ##
 
-	sudo pacman -Syu 			--noconfirm
+	sudo pacman -Syu 		--noconfirm
 
 ## Install Softwares (Pacman) ##
 
-	sudo pacman -S git 			--noconfirm
+	sudo pacman -S git 		--noconfirm
 	sudo pacman -S virtualbox 	--noconfirm
 	sudo pacman -S piper 		--noconfirm
 	sudo pacman -S gparted 		--noconfirm
 	sudo pacman -S steam 		--noconfirm
 	sudo pacman -S discord 		--noconfirm
-	sudo pacman -S gnome-tweaks --noconfirm
+	sudo pacman -S gnome-tweaks 	--noconfirm
 	sudo pacman -S thunderbird 	--noconfirm
 	sudo pacman -S snapd 		--noconfirm
 	sudo pacman -S chromium		--noconfirm
+	sudo pacman -S telegram-desktop --noconfirm
 
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 	export NVM_DIR="$HOME/.nvm"
@@ -54,7 +55,6 @@
 
 	sudo snap install code
 	sudo snap install spotify
-	sudo snap install telegram-desktop
 
 ## Install Softwares (Flatpak) ##
 
