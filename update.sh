@@ -1,41 +1,38 @@
 #!/bin/zsh
 
+## Download and Install a New Theme ##
+
+	#Theme only (No Sys Icons or Mouse Icons)
+		git clone https://github.com/daniruiz/flat-remix-gtk.git
+		sudo mv $PWD/flat-remix-gtk/themes/Flat-Remix-GTK-Grey-Dark /home/$USER/.themes/
+		sudo mv $PWD/flat-remix-gtk/themes/Flat-Remix-LibAdwaita-Grey-Dark/* /home/$USER/.config/gtk-4.0/
+		gsettings set org.gnome.desktop.interface gtk-theme "Flat-Remix-GTK-Grey-Dark"
+
+
 ## Set Current SHELL to BASH ##
-
-	#chsh -s /bin/bash
 	
-	#BACKUP_FOLDER="/home/$USER/Documents/DotFilesBackup"
-	#mkdir $BACKUP_FOLDER -p
-
-	#cp /home/$USER/.bashrc $BACKUP_FOLDER/.bashrc.user-backup
-	#cp $PWD/dotfiles/.bashrc-user /home/$USER/.bashrc
-	#cp $PWD/dotfiles/snippets /home/$USER/.bash_aliases
-
-	#sudo cp /root/.bashrc $BACKUP_FOLDER/.bashrc.root-backup
-	#sudo cp $PWD/dotfiles/.bashrc-root /root/.bashrc
-	#sudo cp $PWD/dotfiles/snippets /root/.bash_aliases
-
-	#sudo cp /etc/skel/.bashrc $BACKUP_FOLDER/.bashrc.skel-backup
-	#sudo cp $PWD/dotfiles/.bashrc-user /etc/skel/.bashrc
-	#sudo cp $PWD/dotfiles/snippets /etc/skel/.bash_aliases
+	#
 
 ## Update the System ##
 
-	sudo pacman -Syu 		--noconfirm
+	sudo pacman -Syu 			--noconfirm
 
 ## Install Softwares (Pacman) ##
 
-	sudo pacman -S git 		--noconfirm
-	sudo pacman -S virtualbox 	--noconfirm
-	sudo pacman -S piper 		--noconfirm
-	sudo pacman -S gparted 		--noconfirm
-	sudo pacman -S steam 		--noconfirm
-	sudo pacman -S discord 		--noconfirm
-	sudo pacman -S gnome-tweaks 	--noconfirm
-	sudo pacman -S thunderbird 	--noconfirm
-	sudo pacman -S snapd 		--noconfirm ; sudo ln -s /var/lib/snapd/snap /snap
-	sudo pacman -S chromium		--noconfirm
-	sudo pacman -S telegram-desktop --noconfirm
+	sudo pacman -S git 					--noconfirm ;
+	sudo pacman -S virtualbox 			--noconfirm ;
+	sudo pacman -S piper 				--noconfirm ;
+	sudo pacman -S gparted 				--noconfirm ;
+	sudo pacman -S steam 				--noconfirm ;
+	sudo pacman -S discord 				--noconfirm ;
+	sudo pacman -S gnome-tweaks 		--noconfirm ;
+	sudo pacman -S thunderbird 			--noconfirm ;
+	sudo pacman -S snapd 				--noconfirm ;
+	sudo pacman -S chromium				--noconfirm ;
+	sudo pacman -S telegram-desktop 	--noconfirm ;
+	sudo pacman -S neofetch				--noconfirm ;
+	sudo pacman -S fragments			--noconfirm ;
+	sudo pacman -S gedit				--noconfirm ; 
 
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 	export NVM_DIR="$HOME/.nvm"
@@ -53,6 +50,7 @@
 
 ## Install Softwares (Snap) ##
 
+	sudo ln -s /var/lib/snapd/snap /snap ;
 	sudo snap install code --classic
 	sudo snap install spotify
 
@@ -66,3 +64,4 @@
 	xdg-open https://extensions.gnome.org/extension/7/removable-drive-menu/
 	xdg-open https://extensions.gnome.org/extension/906/sound-output-device-chooser/
 	xdg-open https://extensions.gnome.org/extension/19/user-themes/
+'
