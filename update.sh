@@ -64,4 +64,3 @@
 	xdg-open https://extensions.gnome.org/extension/7/removable-drive-menu/
 	xdg-open https://extensions.gnome.org/extension/906/sound-output-device-chooser/
 	xdg-open https://extensions.gnome.org/extension/19/user-themes/
-'
