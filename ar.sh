@@ -57,11 +57,13 @@
         pt_BR.UTF-8
 
         echo *HOSTNAME* >> /etc/hostname                            # Set the Hostname
+
         nano /etc/machine-info                                      # set the Pretty Hostname
             ## PRETTY_HOSTNAME="PRETTY HOSTNAME"
             ## ICON_NAME=computer
             ## CHASSIS=desktop
             ## DEPLOYMENT=production
+
         nano /etc/hosts                                             # Configure localhosts
             ## 127.0.0.1    localhost
             ## ::1          localhost
@@ -86,15 +88,13 @@
         pacman -S wpa_supplicant
         pacman -S wireless_tools
         pacman -S dialog
-        pacman -S zsh
-
-        systemctl enable NetworkManager.service # permanently enable network
-
-    ## Install Boot Loader ##
-
         pacman -S grub
         pacman -S efibootmgr
         pacman -S intel-ucode
+
+        systemctl enable NetworkManager.service # permanently enable network
+
+    ## Config Boot Loader ##
 
         grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --recheck # Complete installation of Grub and Microcode
 
@@ -104,10 +104,8 @@
 
     ## Create a new user and add to sudoers ##
 
-        useradd -m *user*   # Create User
+        useradd -m -G wheel -s /bin/bash *user*   # Create User
         passwd *user*   # Change User password
-
-        usermod -aG wheel,audio,video,optical,storage,power -s /bin/zsh *user*  # Add user to groups
 
         EDITOR=nano visudo # Uncomment the wheel group to add user to sudoers
 
@@ -119,27 +117,32 @@
 
     ## Install GPU Drivers ##
 
-        sudo pacman -Sy
         sudo pacman -S xorg
         sudo pacman -S mesa
+        sudo pacman -S lib32-mesa
         sudo pacman -S xf86-video-amdgpu
         sudo pacman -S vulkan-radeon
+        sudo pacman -S lib32-vulkan-radeon
         sudo pacman -S libva-mesa-driver
+        sudo pacman -S lib32-libva-mesa-driver
         sudo pacman -S mesa-vdpau
+        sudo pacman -S lib32-mesa-vdpau
 
     ## Install a Desktop Environment ##
 
-        sudo pacman -S sddm
-        sudo pacman -S sddm-kcm
-        sudo systemctl enable sddm.service
+        sudo pacman -S gdm
 
-        sudo pacman -S plasma-meta
-        sudo pacman -S plasma-desktop
-        sudo pacman -S plasma-wayland-session
-        sudo pacman -S kde-applications-meta
-        sudo pacman -S kde-gtk-config
-        sudo pacman -S alsa-utils
-        sudo pacman -S packagekit-qt5
+        sudo pacman -S gnome
+        sudo pacman -S gnome-tweaks
+        sudo pacman -S gnome-shell-extensions
+        sudo pacman -S gnome-shell-extension-appindicator
+        sudo pacman -S webp-pixbuf-loader
+        #sudo pacman -S chrome-gnome-shell (AUR)
+        #sudo pacman -S gnome-extra
+
+        sudo systemctl start gdm.service
+        sudo systemctl enable gdm.service
+
 
 ## Post Install ##
 
