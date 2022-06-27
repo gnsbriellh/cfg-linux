@@ -93,7 +93,6 @@
         pacman -S wpa_supplicant
         pacman -S wireless_tools
         pacman -S dialog
-        pacman -S ufw
         pacman -S grub
         pacman -S efibootmgr
         pacman -S intel-ucode
@@ -142,6 +141,7 @@
 	pacman -S kde-gtk-config
 	pacman -S packagekit-qt5
 	pacman -S alsa-utils
+	pacman -S ufw
 	#pacman -S kde-applications
 
     ## Permanently Activate Services ##
