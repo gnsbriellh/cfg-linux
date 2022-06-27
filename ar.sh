@@ -133,6 +133,7 @@
         sudo pacman -S gdm
 
         sudo pacman -S gnome
+        sudo pacman -S power-profiles-daemon
         sudo pacman -S gnome-tweaks
         sudo pacman -S gnome-shell-extensions
         sudo pacman -S gnome-shell-extension-appindicator
