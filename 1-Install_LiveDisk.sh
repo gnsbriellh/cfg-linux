@@ -11,10 +11,10 @@
         # Config Locale #
         sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
         locale-gen
-        echo LANG=en_US.UTF-8 >> /etc/locale.conf
+        echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 
         # Config Hostname #
-        echo gnsbriellh-desktop >> /etc/hostname
+        echo "gnsbriellh-desktop" >> /etc/hostname
 
         # Config Pretty Hostname #
         PRETTY_HOSTNAME="Gabriel's Desktop"
@@ -31,6 +31,9 @@
         echo "127.0.0.1    localhost" >> /etc/hosts
         echo "::1          localhost" >> /etc/hosts
         echo "127.0.1.1    gnsbriellh-desktop.localdomain gnsbriellh-desktop" >> /etc/hosts
+
+        # Configuring Keyboar Layout (Console) #
+        echo "KEYMAP=us-acentos" >> /etc/vconsole.conf
 
         # Add Multilib to pacman #
         echo "[multilib]" >> /etc/pacman.conf

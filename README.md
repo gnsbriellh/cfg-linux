@@ -1,9 +1,10 @@
 <h1>Installation Guide (Arch Linux)</h1>
 <p>Refer to the <a href="https://wiki.archlinux.org/title/Installation_guide">Offical Installation Guide<a></p>
 <h3>Installing Raw Arch</h3>
-<p>1 - (Optional) Configure System Clock</p>
+<p>1 - (Optional) Configure System Clock and Keyboard Layout</p>
 
     timedatectl set-ntp true
+    loadkeys us-acentos
 
 <p>2 - Partitioning</p>
 
@@ -74,6 +75,10 @@
         ## 127.0.0.1    localhost
         ## ::1          localhost
         ## 127.0.1.1    *HOSTNAME*.localdomain *HOSTNAME*
+
+    # Add into:
+    nano /etc/vconsole.conf
+        ## KEYMAP=us-acentos
 
     # Uncomment multilib to increase package providers
     nano /etc/pacman.conf
