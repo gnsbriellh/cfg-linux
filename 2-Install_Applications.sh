@@ -59,11 +59,11 @@
 	# Spotify #
 	curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | gpg --import -
 	git clone https://aur.archlinux.org/spotify.git
-	cd spotify ; makepkg -si ; cd ..
+	cd spotify ; yes | makepkg -si ; cd ..
 
 	# VSCode #
 	git clone https://aur.archlinux.org/visual-studio-code-bin.git
-	cd visual-studio-code-bin ; makepkg -si ; cd ..
+	cd visual-studio-code-bin ; yes | makepkg -si ; cd ..
 
 	# Google Chrome #
 	#git clone https://aur.archlinux.org/google-chrome.git
@@ -85,7 +85,7 @@
 	while true; do
 		read -p "Install .bashrc and .bash_aliases ? [Y/n] " yn
 		case $yn in
-			[Yy]* ) bash "$PWD/3-Install_(Terminal).sh"; break;;
+			[Yy]* ) bash "$PWD/3-Install_Terminal.sh"; break;;
 			[Nn]* ) echo "Answer: 'No'"; break;;
 			* ) echo "Please answer with Yy[es] or Nn[o].";;
 		esac

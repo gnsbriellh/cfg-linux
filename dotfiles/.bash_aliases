@@ -21,7 +21,7 @@ alias ..='cd ..' #Go back one folder
 # enable color support and shorten some commands of ls
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls -a --color=auto'
+    alias ls='ls -la --color=auto'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
     alias grep='grep --color=auto'

@@ -1,2 +1,4 @@
 !.gitignore
-dotfiles/git-prompt.sh
+dotfiles/.git-prompt.sh
+dotfiles/.git-completion.bash
+AUR/

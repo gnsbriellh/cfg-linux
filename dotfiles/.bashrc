@@ -51,9 +51,11 @@
     fi
 
     # Git
-        ## This will read a file that shows the current git branch on the terminal ##
-    if [ -f ~/.config/bash/git-prompt.sh ] ; then
-        source ~/.config/bash/git-prompt.sh
+        ## This will read a file that shows the current git branch and git completions on the terminal ##
+    if [ -f ~/.config/bash/.git-prompt.sh ] && [ -f ~/.config/bash/.git-completion.bash ]  ; then
+        source ~/.config/bash/.git-prompt.sh
+        source ~/.config/bash/.git-completion.bash
+
     fi
 
     #source ~/.config/bash/git-prompt.sh
