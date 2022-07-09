@@ -115,8 +115,6 @@ echo   ; sleep 2 ;
 
     # /etc/skel/ #
         cp -r $PWD/Files/etc /
-        cp -r $PWD/Files/usr /
-
 
 # Done
     echo "User set-up has been completed !" ; sleep 2
