@@ -1,0 +1,119 @@
+#!/bin/bash
+cat << "EOF" 
+     _______                                         _______                      __                                              
+    |       \                                       |       \                    |  \                                             
+    | $$$$$$$\  ______    _______   ______          | $$$$$$$\ ______    _______ | $$   __  ______    ______    ______    _______ 
+    | $$__/ $$ |      \  /       \ /      \  ______ | $$__/ $$|      \  /       \| $$  /  \|      \  /      \  /      \  /       \
+    | $$    $$  \$$$$$$\|  $$$$$$$|  $$$$$$\|      \| $$    $$ \$$$$$$\|  $$$$$$$| $$_/  $$ \$$$$$$\|  $$$$$$\|  $$$$$$\|  $$$$$$$
+    | $$$$$$$\ /      $$ \$$    \ | $$    $$ \$$$$$$| $$$$$$$ /      $$| $$      | $$   $$ /      $$| $$  | $$| $$    $$ \$$    \ 
+    | $$__/ $$|  $$$$$$$ _\$$$$$$\| $$$$$$$$        | $$     |  $$$$$$$| $$_____ | $$$$$$\|  $$$$$$$| $$__| $$| $$$$$$$$ _\$$$$$$\
+    | $$    $$ \$$    $$|       $$ \$$     \        | $$      \$$    $$ \$$     \| $$  \$$\\$$    $$ \$$    $$ \$$     \|       $$
+     \$$$$$$$   \$$$$$$$ \$$$$$$$   \$$$$$$$         \$$       \$$$$$$$  \$$$$$$$ \$$   \$$ \$$$$$$$ _\$$$$$$$  \$$$$$$$ \$$$$$$$ 
+                                                                                                    |  \__| $$                    
+                                                                                                     \$$    $$                    
+                                                                                                      \$$$$$$                     
+                                                                                                                                  
+EOF
+echo   ; sleep 2 ;
+
+pacman -S                   \
+    man-db                  \
+    man-pages               \
+    dosfstools              \
+    mtools                  \
+    wpa_supplicant          \
+    wireless_tools          \
+    dialog                  \
+    network-manager-applet  \
+    xorg                    \
+    mesa                    \
+    lib32-mesa              \
+    xf86-video-amdgpu       \
+    vulkan-radeon           \
+    lib32-vulkan-radeon     \
+    libva-mesa-driver       \
+    lib32-libva-mesa-driver \
+    mesa-vdpau              \
+    lib32-mesa-vdpau        \
+    sddm                    \
+    python3                 \
+    python-psutil           \
+    python-pip              \
+    qtile                   \
+    feh                     \
+    nitrogen                \
+    dmenu                   \
+    rofi                    \
+    slock                   \
+    alacritty               \
+    xterm                   \
+    rxvt-unicode            \
+    ufw                     \
+    unzip                   \
+    wget                    \
+    curl                    \
+    pulseaudio              \
+    lib32-libpulse          \
+    pulseaudio-alsa         \
+    lib32-alsa-plugins      \
+    pulsemixer              \
+    noto-fonts-emoji        \
+    lib32-fontconfig        \
+    ttf-liberation          \
+    wqy-zenhei              \
+    firefox                 \
+    virtualbox              \
+    piper                   \
+    steam                   \
+    lutris                  \
+    discord                 \
+    thunderbird             \
+    telegram-desktop        \
+    qbittorrent             \
+    neofetch                \
+    htop                    \
+    btop                    \
+    freerdp                 \
+    thunar                  --noconfirm
+
+    #systemctl pulseaudio.socket
+    systemctl enable ufw.service
+    systemctl enable sddm.service
+
+## Arch User Repository ##
+
+    #
+        mkdir Downloads/ ; cd Downloads/
+
+    # Spotify #
+        curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | gpg --import -
+        git clone https://aur.archlinux.org/spotify.git
+        cd spotify ; yes | makepkg -si ; cd ..
+
+    # VSCode #
+        git clone https://aur.archlinux.org/visual-studio-code-bin.git
+        cd visual-studio-code-bin ; yes | makepkg -si ; cd ..
+
+    # Picom #
+        git clone https://aur.archlinux.org/picom-jonaburg-git.git
+        cd picom-jonaburg-git ; yes | makepkg -si ; cd ..
+
+    #
+        cd ..
+
+## Curled Packages ##
+
+    # NVM (Nodejs) #
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+        nvm install 16 ; nvm use 16
+
+## Move/Create Folders ##
+
+    # Home #
+        cp -r $PWD/Media ~/
+
+# Done
+    echo "DONE !" ; sleep 2 
