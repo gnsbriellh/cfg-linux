@@ -35,7 +35,6 @@ pacman -S                   \
     lib32-libva-mesa-driver \
     mesa-vdpau              \
     lib32-mesa-vdpau        \
-    sddm                    \
     python3                 \
     python-psutil           \
     python-pip              \
@@ -78,12 +77,16 @@ pacman -S                   \
 
     #systemctl pulseaudio.socket
     systemctl enable ufw.service
-    systemctl enable sddm.service
 
 ## Arch User Repository ##
 
     #
-        mkdir Downloads/ ; cd Downloads/
+        mkdir -v Downloads/ ; cd Downloads/
+
+    # Login Manager (LY)
+        git clone https://aur.archlinux.org/ly.git
+        cd ly ; yes | makepkg -si ; cd ..
+        systemctl enable ly.service
 
     # Spotify #
         curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | gpg --import -
@@ -113,7 +116,16 @@ pacman -S                   \
 ## Move/Create Folders ##
 
     # Home #
-        cp -r $PWD/Media ~/
+        cp -r -v $PWD/Media ~/
+        mkdir -v ~/Media/Videos/
+        mkdir -v ~/Media/Music/
+        mkdir -v ~/Projects/
+        mkdir -v ~/Documents/
+        mkdir -v ~/Downloads/
+        mkdir -v ~/Desktop/
+
+## Set Keyboard Layout in X11 ##
+    #localectl --no-ask-password --no-convert set-x11-keymap us pc104 intl grp:win_space_toggle
 
 # Done
     echo "DONE !" ; sleep 2 

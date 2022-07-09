@@ -221,6 +221,9 @@ keys = [
 #        desc = "Launch xfreerdp"
 #    ),
 
+    Key([mod], "F11", lazy.spawn("xkill"),
+        desc = "Launch xkill"
+    ),
 ]
 
 mouse = [

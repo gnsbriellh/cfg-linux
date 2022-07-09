@@ -4,4 +4,4 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-export PATH=$PATH:~/.local/.exec/
+export PATH=$PATH:~/.bin/

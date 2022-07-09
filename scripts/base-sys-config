@@ -48,7 +48,7 @@ echo   ; sleep 2 ;
     echo "127.0.1.1     $SET_HOSTNAME.localdomain $SET_HOSTNAME" >> /etc/hosts
 
 # Configuring Keyboard Layout (Console)
-    echo "KEYMAP=us-acentos" >> /etc/vconsole.conf
+    echo "KEYMAP=us" >> /etc/vconsole.conf
 
 # Add Multilib to pacman
     echo "[multilib]" >> /etc/pacman.conf
@@ -88,6 +88,10 @@ EOF
 
 echo   ; sleep 2 ;
 
+# Move/Create Folders #
+    cp -r -v $PWD/Files/etc /
+    cp -v $PWD/Files/etc/skel/.bash* /root/
+
 # Read Username
     read -p "Enter USERNAME: " SET_USER ; echo  
 
@@ -110,12 +114,6 @@ echo   ; sleep 2 ;
             * ) echo "Please answer with Y[es] or N[o].";;
         esac
     done
-
-# Move/Create Folders #
-
-    # /etc/skel/ #
-        cp -r $PWD/Files/etc /
-        cp $PWD/Files/etc/skel/.bash* /root/
 
 # Done
     echo "User set-up has been completed !" ; sleep 2
