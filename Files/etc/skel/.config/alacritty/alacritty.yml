@@ -44,19 +44,19 @@ colors:
 ## Font Configuration ##
 font:
   normal:
-    family: Hack NF
+    family: FiraCode NF
     style: Regular
 
   bold:
-    family: Hack NF
+    family: FiraCode NF
     style: Bold
 
   italic:
-    family: Hack NF
+    family: FiraCode NF
     style: Italic
 
   bold_italic:
-    family: Hack NF
+    family: FiraCode NF
     style: Bold Italic
 
   size: 12

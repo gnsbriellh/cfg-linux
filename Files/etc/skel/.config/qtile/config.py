@@ -406,7 +406,7 @@ for i in groups:
 ## Configs ##
 
 widget_defaults = dict(
-    font="Hack NF",
+    font="FiraCode NF",
     fontsize=12,
     padding=3
 )
