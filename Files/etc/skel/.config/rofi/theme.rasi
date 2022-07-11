@@ -5,18 +5,18 @@
  *******************************************************************************/
 
 * {
-    bg0:    rgba(230, 230, 230, 0.9);
-    bg1:    rgba(230, 230, 230, 0.5);
+    bg0:    #2c313c;
+    bg1:    #2c313c;
     bg2:    #3D3D3D80;
-    bg3:    #EF3054;
+    bg3:    #F05454;
     fg0:    #E6E6E6;
     fg1:    #FFFFFF;
-    fg2:    rgba(45, 40, 77, 0.5);
-    fg3:    #2e294e;
+    fg2:    #D6E0F0;
+    fg3:    #D6E0F0;
 }
 
 * {
-    font:   "Hack NF 12";
+    font:   "FiraCode NF 12";
 
     background-color:   transparent;
     text-color:         @fg0;
@@ -28,7 +28,7 @@
 
 window {
     location:       center;
-    width:          480;
+    width:          380;
     y-offset:       -200;
     border-radius:  24px;
     
@@ -102,5 +102,5 @@ element-icon {
 }
 
 element-text {
-    text-color: #2e294e;
+    text-color: #D6E0F0;
 }

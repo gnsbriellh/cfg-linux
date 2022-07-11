@@ -16,7 +16,11 @@ cat << "EOF"
 EOF
 echo   ; sleep 2 ;
 
-pacman -S                   \
+# Folders
+    mkdir $PWD/Downloads/Fonts/ -p -v
+    mkdir $PWD/Downloads/AUR/ -p -v
+
+sudo pacman -S              \
     man-db                  \
     man-pages               \
     dosfstools              \
@@ -39,14 +43,14 @@ pacman -S                   \
     python-psutil           \
     python-pip              \
     qtile                   \
-    feh                     \
     nitrogen                \
     dmenu                   \
+    picom                   \
     rofi                    \
+    rofi-emoji              \
     slock                   \
     alacritty               \
     xterm                   \
-    rxvt-unicode            \
     ufw                     \
     unzip                   \
     wget                    \
@@ -73,15 +77,36 @@ pacman -S                   \
     htop                    \
     btop                    \
     freerdp                 \
+    gnome-keyring           \
+    libsecret               \
+    libgnome-keyring        \
     thunar                  --noconfirm
 
-    #systemctl pulseaudio.socket
-    systemctl enable ufw.service
+#    sudo systemctl pulseaudio.socket
+    sudo systemctl enable ufw.service
+
+## Fonts ##
+
+    # Nerd Fonts (Hack) #
+        wget -c -P $PWD/Downloads/Fonts/ https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
+        mkdir ~/.local/share/fonts/Hack/ -p -v
+        unzip $PWD/Downloads/Fonts/'Hack.zip' -d ~/.local/share/fonts/Hack/
+
+    # Nerd Fonts (FiraCode)
+        wget -c -P $PWD/Downloads/Fonts/ https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
+        mkdir ~/.local/share/fonts/FiraCode/ -p -v
+        unzip $PWD/Downloads/Fonts/'FiraCode.zip' -d ~/.local/share/fonts/FiraCode/
+
+    # Icons (Material Design Fonts)
+        git clone https://github.com/Templarian/MaterialDesign-Font.git ~/.local/share/fonts/MaterialDesign-Font/
+
+    # Refresh Fonts Cache
+        fc-cache -r
 
 ## Arch User Repository ##
 
     #
-        mkdir -v Downloads/ ; cd Downloads/
+        cd $PWD/Downloads/AUR/
 
     # Login Manager (LY)
         git clone https://aur.archlinux.org/ly.git
@@ -97,12 +122,8 @@ pacman -S                   \
         git clone https://aur.archlinux.org/visual-studio-code-bin.git
         cd visual-studio-code-bin ; yes | makepkg -si ; cd ..
 
-    # Picom #
-        git clone https://aur.archlinux.org/picom-jonaburg-git.git
-        cd picom-jonaburg-git ; yes | makepkg -si ; cd ..
-
     #
-        cd ..
+        cd .. ; cd ..
 
 ## Curled Packages ##
 
@@ -116,16 +137,16 @@ pacman -S                   \
 ## Move/Create Folders ##
 
     # Home #
-        cp -r -v $PWD/Media ~/
-        mkdir -v ~/Media/Videos/
-        mkdir -v ~/Media/Music/
-        mkdir -v ~/Projects/
-        mkdir -v ~/Documents/
-        mkdir -v ~/Downloads/
-        mkdir -v ~/Desktop/
+        cp -r -v -p $PWD/Media ~/
+        mkdir -v -p ~/Media/Videos/
+        mkdir -v -p ~/Media/Music/
+        mkdir -v -p ~/Projects/
+        mkdir -v -p ~/Documents/
+        mkdir -v -p ~/Downloads/
+        mkdir -v -p ~/Desktop/
 
 ## Set Keyboard Layout in X11 ##
-    #localectl --no-ask-password --no-convert set-x11-keymap us pc104 intl grp:win_space_toggle
+    localectl --no-ask-password --no-convert set-x11-keymap us pc104 intl grp:win_space_toggle
 
 # Done
     echo "DONE !" ; sleep 2 

@@ -79,10 +79,10 @@
 
     # Git
         ## This will read a file that shows the current git branch and another that allows git completions on the terminal ##
-    if [ -f ~/.config/bash/.git-prompt.sh ] && [ -f ~/.config/bash/.git-completion.bash ]  ; then
+    if [ -f ~/.config/bash/git-prompt.sh ] && [ -f ~/.config/bash/git-completion.bash ]  ; then
 
-        source ~/.config/bash/.git-prompt.sh
-        source ~/.config/bash/.git-completion.bash
+        source ~/.config/bash/git-prompt.sh
+        source ~/.config/bash/git-completion.bash
 
     fi
 

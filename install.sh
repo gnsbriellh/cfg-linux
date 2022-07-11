@@ -17,7 +17,7 @@ EOF
 echo   ; sleep 2 ;
 
 # PROMPT TO CONFIGURE THE SYSTEM #
-    while true;
+    while true; do
         read -p "Would you like to configure the base system ?  [Y/n] " yn
         case $yn in
             [Yy]* ) bash "$PWD/scripts/base-sys-config"; break;;
@@ -35,4 +35,3 @@ echo   ; sleep 2 ;
             * ) echo "Please answer with Y[es] or N[o].";;
         esac
     done
-

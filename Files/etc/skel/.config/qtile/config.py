@@ -37,7 +37,7 @@ from libqtile import bar, layout, widget, qtile, hook
 from libqtile.lazy import lazy
 import subprocess
 import os
-from colors import colors, icons
+from colors import colors
 
 #     _____             __ _           
 #    / ____|           / _(_)          
@@ -281,7 +281,7 @@ layout_theme = {
         "border_focus": colors["fbr"],      # Focused Window - Border Color;
         "border_normal": colors["nbr"],     # Unfocused Window - Border Color;
         "border_width": 2,                  # Border Width;
-        "margin": 10                        # Margin (Gap);
+        "margin": 5                        # Margin (Gap);
 }
 
 ## ORDER MATTER ##
@@ -307,7 +307,7 @@ layouts = [
         change_size=20,
         new_client_position="bottom",
         single_border_width=0,
-        single_margin=10
+        single_margin=5
     ),
 
     layout.Columns(
@@ -325,56 +325,16 @@ layouts = [
 #                                 |_|                        
 
 groups = [
-    Group(
-        name="1",
-        label = icons["workspace_1"],
-        layout="monadtall"
-    ),
+    Group(name="1", label = "󰖟", layout="monadtall"),
+    Group(name="2", label = "󰆍", layout="monadtall"),
+    Group(name="3", label = "󰉖", layout="MonadTall"),
+    Group(name="4", label = "󰓇", layout="MonadTall"),
+    Group(name="5", label = "󰓓", layout="MonadTall"),
+    Group(name="6", label = "󰢹", layout="MonadTall"),
+    #Group(name="7", label = " ", layout="MonadTall"),
+    #Group(name="8", label = " ", layout="MonadTall"),
+    #Group(name="9", label = " ", layout="MonadTall"),
 
-    Group(
-        name="2", 
-        label =icons["workspace_2"],
-        layout="monadtall"
-    ),
-
-    Group(
-        name="3", 
-        label =icons["workspace_3"],
-        layout="MonadTall"
-    ),
-
-    Group(
-        name="4", 
-        label =icons["workspace_4"],
-        layout="MonadTall"
-    ),
-
-    Group(
-        name="5", 
-        label =icons["workspace_5"],
-        layout="MonadTall"
-    ),
-
-    Group(
-        name="6",
-        label =icons["workspace_6"],
-        layout="MonadTall"
-    ),
-
-#    Group(
-#        name="7",
-#        label =icons["workspace_7"]
-#    ),
-
-#    Group(
-#        name="8",
-#        label =icons["workspace_8"]
-#    ),
-
-#    Group(
-#        name="9",
-#        label =icons["workspace_9"]
-#    ),
 ]
 
 for i in groups:
@@ -406,320 +366,274 @@ for i in groups:
 #                           __/ |             
 #                          |___/              
 
-## Configs ##
-
 widget_defaults = dict(
-    font="FiraCode NF",
-    fontsize=12,
-    padding=3
+    background = colors["bg"],
+    foreground = colors["fg"],
+    font = "Hack NF",
+    fontsize = 12,
+    padding = 0
 )
 extension_defaults = widget_defaults.copy()
 
-widget_separator_a = {
-    "font": "Powerline Extra Symbols",
-    "text": "",
-    "fontsize": 30,
-    "background": colors["tr"],
-    "foreground": colors["bg"],
-    "padding": 0
-}
-
-widget_separator_b = {
-    "text": "",
-    "font": "Powerline Extra Symbols",
-    "fontsize": 30,
-    "background": colors["bg"],
-    "foreground": colors["sbg"],
-    "padding": 0
-}
-
-widget_separator_c = {
-    "font": "Powerline Extra Symbols",
-    "text": "",
-    "fontsize": 30,
-    "background": colors["sbg"],
-    "foreground": colors["bg"],
-    "padding": 0
-}
-
-widget_separator_d = {
-    "font": "Powerline Extra Symbols",
-    "text": "",
-    "fontsize": 30,
-    "background": colors["tr"],
-    "foreground": colors["bg"],
-    "padding": 0
-}
-
-bar_icons = {
+qtile_bar_icons = {
     "font": "Material Design Icons Desktop",
     "fontsize": 18,
+    "padding": 4
+}
+
+qtile_bar_separator = {
+    "foreground": colors["bg"],
     "background": colors["bg"],
-    "foreground": colors["fg"],
-    "padding": 1
+    "padding": 15
 }
 
-## Mouse Callbacks ##
-
-open_exitmenu = {
-    "Button1": lazy.spawn("exitmenu")
-}
-
-open_btop = {
-    "Button1": lazy.spawn(myTerminal + " -e btop")
-}
-
-open_htop = {
-    "Button1": lazy.spawn(myTerminal + " -e htop")
-}
-
-open_pulsemixer = {
-    "Button1": lazy.spawn(myTerminal + " -e pulsemixer")
-}
-
-## Screens ##
+#    _______    ______   _______    ______  
+#   |       \  /      \ |       \  /      \ 
+#   | $$$$$$$\|  $$$$$$\| $$$$$$$\|  $$$$$$\
+#   | $$__/ $$| $$__| $$| $$__| $$| $$___\$$
+#   | $$    $$| $$    $$| $$    $$ \$$    \ 
+#   | $$$$$$$\| $$$$$$$$| $$$$$$$\ _\$$$$$$\
+#   | $$__/ $$| $$  | $$| $$  | $$|  \__| $$
+#   | $$    $$| $$  | $$| $$  | $$ \$$    $$
+#    \$$$$$$$  \$$   \$$ \$$   \$$  \$$$$$$ 
+#                                           
+#                                           
+#                                           
 
 screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.TextBox(
-                    **widget_separator_a
-                ),
-
-                widget.GroupBox(
+                widget.Sep(
+                    foreground = colors["bg"],
                     background = colors["bg"],
-                    active = colors["fg"],
-                    inactive = colors["fg"],
-                    highlight_method ="block",
-                    block_highlight_text_color = colors["fg"],
-                    borderwidth = 3,
-                    rounded = True,
-                    center_aligned = True,
-                    disable_drag = True,
-                    fontsize = 24,
-                    highlight_color = colors["urg"],
-                    margin = 3,
-                    this_current_screen_border = colors["sbg"],
-                    urgent_alert_method = "line",
-                    urgent_border = colors["urg"],
-                    urgent_text = colors["urg"],
                     padding = 6
                 ),
 
                 widget.TextBox(
-                    **widget_separator_d
+                    font = "Material Design Icons Desktop",
+                    fontsize = 22,
+                    padding = 5,
+                    foreground = colors["rof"],
+                    text = "󰣇",
+                    mouse_callbacks = {"Button1": lazy.spawn("rofi -modi drun,run -show drun")}
                 ),
+
+                widget.Sep(
+                    foreground = colors["bg"],
+                    background = colors["bg"],
+                    padding = 0
+                ),
+
+                ###############
+                ## WORKSPACES #
+                ###############
+
+                widget.GroupBox(
+                    active = colors["fg"],
+                    inactive = colors["fg"],
+                    block_highlight_text_color = colors["fg"],
+                    urgent_border = colors["urg"],
+                    urgent_text = colors["urg"],
+                    highlight_color = colors["urg"],
+                    this_current_screen_border = colors["sel"],
+                    highlight_method = "block",
+                    urgent_alert_method = "line",
+                    borderwidth = 3,
+                    rounded = True,
+                    center_aligned = True,
+                    disable_drag = True,
+                    fontsize = 18,
+                    margin = 3,
+                    padding = 6
+                ),
+
+                ################
+                ## WINDOW NAME #
+                ################
 
                 widget.WindowName(
-                    foreground= colors["bg"],
+                    background = colors["bg"],
+                    foreground = colors["win"],
                     for_current_screen=True,
-                    format= " {name}",
-                    max_chars=60
+                    format = " {name}",
+                    max_chars = 60
                 ),
+
+                widget.Sep(
+                    background = colors["bg"],
+                    foreground = colors["bg"],
+                    padding = 1
+                ),
+
+                ################
+                ## SYSTEM TRAY #
+                ################
 
                 widget.Systray(
-                    background = colors["tr"]
+                    background = colors["bg"]
                 ),
 
-                widget.TextBox(
-                    **widget_separator_a
-                ),
+                widget.Sep(**qtile_bar_separator),
+
+                ###########
+                ## VOLUME #
+                ###########
 
                 widget.TextBox(
-                    **widget_separator_b
-                ),
-
-                widget.TextBox(
-                    **widget_separator_c,
-                    mouse_callbacks= open_pulsemixer
-                ),
-
-                widget.TextBox(
-                    **bar_icons,
-                    text = icons["vol"],
-                    mouse_callbacks= open_pulsemixer
+                    **qtile_bar_icons,
+                    foreground = colors["vol"],
+                    text= "󰕾"
                 ),
 
                 widget.PulseVolume(
-                    background= colors["bg"],
-                    foreground= colors["fg"],
-                    limit_max_volume= True,
-                    step= 1,
-                    volume_app="pulsemixer",
-                    mouse_callbacks= open_pulsemixer
+                    foreground = colors["vol"],
+                    limit_max_volume = True,
+                    step = 2,
+                    volume_app = "pulsemixer",
+                    mouse_callbacks = {"Button1": lazy.spawn(myTerminal + " -e pulsemixer")}
                 ),
 
-                widget.Sep(
-                    foreground= colors["bg"],
-                    background= colors["bg"],
-                ),
+                widget.Sep(**qtile_bar_separator),
 
-                widget.TextBox(
-                    **widget_separator_b
-                ),
+                ############
+                ## Updates #
+                ############
 
                 widget.TextBox(
-                    **widget_separator_c,
-                    mouse_callbacks= open_btop
+                    **qtile_bar_icons,
+                    foreground = colors["upd"],
+                    text = "󰂜"
                 ),
 
+                widget.CheckUpdates(
+                    colour_have_updates = colors["upd"],
+                    colour_no_updates = colors["upd"],
+                    no_update_string = "0",
+                    distro = 'Arch',
+                    display_format = '{updates}',
+                    mouse_callbacks = {"Button1": lazy.spawn(myTerminal + " -e sudo pacman -Syyu")}
+                ),
+
+                widget.Sep(**qtile_bar_separator),
+
+                ##############
+                ## PROCESSOR #
+                ##############
+
                 widget.TextBox(
-                    **bar_icons,
-                    text = icons["cpu"],
-                    mouse_callbacks= open_btop
+                    **qtile_bar_icons,
+                    foreground = colors["cpu"],
+                    text = "󰍛"
                 ),
 
                 widget.CPU(
-                    background= colors["bg"],
-                    foreground= colors["fg"],
-                    format='{freq_current}GHz {load_percent}%',
-                    update_interval=0.5,
-                    mouse_callbacks= open_btop
+                    format = '{freq_current}GHz {load_percent}%',
+                    update_interval = 0.5,
+                    foreground = colors["cpu"],
+                    mouse_callbacks = {"Button1": lazy.spawn(myTerminal + " -e btop")}
                 ),
 
-                widget.Sep(
-                    foreground= colors["bg"],
-                    background= colors["bg"]
-                ),
+                widget.Sep(**qtile_bar_separator),
 
-                widget.TextBox(
-                    **widget_separator_b
-                ),
+                ################
+                ## TEMPERATURE #
+                ################
 
                 widget.TextBox(
-                    **widget_separator_c
-                ),
-
-                widget.TextBox(
-                    **bar_icons,
-                    text = icons["gpu"]
+                    **qtile_bar_icons,
+                    foreground = colors["gpu"],
+                    text = "󰸁"
                 ),
 
                 widget.ThermalSensor(
-                    background= colors["bg"],
-                    foreground= colors["fg"],
-                    tag_sensor= "Package id 0"
+                    foreground = colors["gpu"],
+                    tag_sensor = "Package id 0"
                 ),
 
-                widget.Sep(
-                    foreground= colors["bg"],
-                    background= colors["bg"]
-                ),
+                widget.Sep(**qtile_bar_separator),
 
-                widget.TextBox(
-                    **widget_separator_b
-                ),
+                ###########
+                ## MEMORY #
+                ###########
 
                 widget.TextBox(
-                    **widget_separator_c,
-                    mouse_callbacks= open_htop
-                ),
-
-                widget.TextBox(
-                    **bar_icons,
-                    text = icons["mem"],
-                    mouse_callbacks= open_htop
+                    **qtile_bar_icons,
+                    foreground = colors["mem"],
+                    text = "󱘲"
                 ),
 
                 widget.Memory(
-                    background= colors["bg"],
-                    foreground= colors["fg"],
-                    format='{MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}',
-                    mouse_callbacks= open_htop
+                    format = '{MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}',
+                    foreground = colors["mem"],
+                    mouse_callbacks = {"Button1": lazy.spawn(myTerminal + " -e htop")}
                 ),
 
-                widget.Sep(
-                    foreground= colors["bg"],
-                    background= colors["bg"]
-                ),
+                widget.Sep(**qtile_bar_separator),
 
-                widget.TextBox(
-                    **widget_separator_b
-                ),
+                #############
+                ## POMODORO #
+                #############
 
                 widget.TextBox(
-                    **widget_separator_c
-                ),
-
-                widget.TextBox(
-                    **bar_icons,
-                    text = icons["pom"]
+                    **qtile_bar_icons,
+                    foreground = colors["pom"],
+                    text = "󰔟"
                 ),
 
                 widget.Pomodoro(
-                    background= colors["bg"],
-                    color_active= colors["fg"],
-                    color_inactive= colors["fg"],
-                    color_break= colors["sbg"],
-                    prefix_active="",
-                    prefix_break="Take a Break ! ",
-                    prefix_long_break="Take a Break ! ",
-                    length_pomodori=25,
-                    length_short_break=5,
-                    length_long_break=15,
-                    prefix_inactive="25min "
+                    color_active = colors["pom"],
+                    color_inactive = colors["pom"],
+                    color_break = colors["pom"],
+                    prefix_active = "",
+                    prefix_break = "Take a Break ! ",
+                    prefix_long_break = "Take a Break ! ",
+                    length_pomodori = 25,
+                    length_short_break = 5,
+                    length_long_break = 15,
+                    prefix_inactive = "25min "
                 ),
 
-                widget.Sep(
-                    foreground= colors["bg"],
-                    background= colors["bg"]
-                ),
+                widget.Sep(**qtile_bar_separator),
 
-                widget.TextBox(
-                    **widget_separator_b
-                ),
+                ##########
+                ## CLOCK #
+                ##########
 
                 widget.TextBox(
-                    **widget_separator_c
-                    #mouse_callbacks= open_calendar
-                ),
-
-                widget.TextBox(
-                    **bar_icons,
-                    text = icons["clo"]
-                    #mouse_callbacks= open_calendar
+                    **qtile_bar_icons,
+                    foreground = colors["clo"],
+                    text = "󱑎"
                 ),
 
                 widget.Clock(
-                    background= colors["bg"],
-                    foreground= colors["fg"],
-                    format="%a %d - %I:%M %p "
+                    format = "%a %d - %I:%M %p ",
+                    foreground = colors["clo"]
                     #mouse_callbacks= open_calendar
                 ),
 
-                widget.TextBox(
-                    **widget_separator_b
-                    #mouse_callbacks= open_calendar
-                ),
-
-                widget.TextBox(
-                    **widget_separator_c,
-                    mouse_callbacks= open_exitmenu
+                widget.Sep(
+                    foreground = colors["bg"],
+                    background = colors["bg"],
+                    padding = 2
                 ),
 
                 widget.QuickExit(
-                    background= colors["bg"],
-                    foreground= colors["fg"],
-                    default_text= icons["shu"],
-                    fontsize=18,
-                    countdown_start=16,
-                    countdown_format='{}s',
-                    padding=0,
-                    mouse_callbacks= open_exitmenu
+                    **qtile_bar_icons,
+                    foreground = colors["shu"],
+                    default_text = "󰐦",
+                    mouse_callbacks = {"Button1": lazy.spawn("exitmenu")}
                 ),
 
-                widget.TextBox(
-                    **widget_separator_d,
-                    mouse_callbacks= open_exitmenu
+                widget.Sep(
+                    foreground = colors["bg"],
+                    background = colors["bg"],
+                    padding = 4
                 ),
             ],
-            size=34,
-            margin=[10, 10, 0, 10],
-            border_width=0,
-            border_color= colors["tr"],
-            background= colors["tr"],
-            opacity=1.0
+            size = 28,
+            margin = [5, 5, 0, 5],
+            background = colors["bg"],
         ),
     ),
 ]

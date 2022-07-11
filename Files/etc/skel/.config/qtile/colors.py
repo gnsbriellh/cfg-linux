@@ -1,32 +1,23 @@
 colors = {
-    "ffbr": "#EF3054",      # Floating Focused Border Color     (Windows) 
-    "fnbr": "#2e294e",      # Floating !Focused Border color    (Windows)
-    "fbr":  "#EF3054",      # Focused Border Color              (Windows)
-    "nbr":  "#2e294e",      # !Focused Border color             (Windows)
-    "urg":  "#FF0000",      # Urgent Color
+    "ffbr" :  "#E84A5F",      # Floating Focused Border Color     (Windows) 
+    "fnbr" :  "#2c313c",      # Floating !Focused Border color    (Windows)
+    "fbr"  :  "#E84A5F",      # Focused Border Color              (Windows)
+    "nbr"  :  "#2c313c",      # !Focused Border color             (Windows)
+    "urg"  :  "#F05454",      # Urgent Color
 
-    "bg":   "#F8F3F2",      # Background Color                  (Qtile Bar)
-    "sbg":  "#EF3054",      # Secondary Background Color        (Qtile Bar)
-    "fg":   "#2e294e",      # Text/Icons Color                  (Qtile Bar)
-    "tr":   "#00000000"    # Fully Transparent Color           (Qtile Bar)
-} 
+    "bg"   :  "#2c313c",      # Background Color                  (Qtile Bar)
+    "sel"  :  "#E84A5F",      # Selected Workspace Color          (Qtile Bar)
+    "fg"   :  "#cccccc",      # Text Color                        (Qtile Bar)
+    "tr"   :  "#00000000",    # Fully Transparent Color           (Qtile Bar)
 
-icons ={
-    "workspace_1": "󰣇", # Workspace Label
-    "workspace_2": "󰆍", # Workspace Label
-    "workspace_3": "󰉖", # Workspace Label
-    "workspace_4": "󰓇", # Workspace Label
-    "workspace_5": "󰓓", # Workspace Label
-    "workspace_6": "󰢹", # Workspace Label
-#    "workspace_7": "", # Workspace Label
-#    "workspace_8": "", # Workspace Label
-#    "workspace_9": "", # Workspace Label
-
-    "vol": "󰕾 ",        # Volume    Icon
-    "cpu": "󰍛 ",        # CPU       Icon
-    "gpu": "󰔐 ",        # GPU       Icon
-    "mem": "󰍛 ",        # Memory    Icon
-    "pom": "󰔛 ",        # Pomodoro  Icon
-    "clo": "󰅐 ",        # Clock     Icon
-    "shu": "󰐦"          # Shutdown  Icon
+    "rof"  :  "#56b6c2",      # ROFI                              (Qtile Bar)
+    "win"  :  "#E84A5F",      # Window Name Text                  (Qtile Bar)
+    "vol"  :  "#e5c07b",      # Volume      Icon                  (Qtile Bar)
+    "upd"  :  "#e06c75",      # Updates     Icon                  (Qtile Bar)
+    "cpu"  :  "#cccccc",      # CPU         Icon                  (Qtile Bar)
+    "gpu"  :  "#c678dd",      # GPU         Icon                  (Qtile Bar)
+    "mem"  :  "#56b6c2",      # Memory      Icon                  (Qtile Bar)
+    "pom"  :  "#98c379",      # Pomodoro    Icon                  (Qtile Bar)
+    "clo"  :  "#e5c07b",      # Clock       Icon                  (Qtile Bar)
+    "shu"  :  "#7f848e"       # Shutdown    Icon                  (Qtile Bar)
 }
