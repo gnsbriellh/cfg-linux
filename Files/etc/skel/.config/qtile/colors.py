@@ -11,7 +11,7 @@ colors = {
     "tr"   :  "#00000000",    # Fully Transparent Color           (Qtile Bar)
 
     "rof"  :  "#56b6c2",      # ROFI                              (Qtile Bar)
-    "win"  :  "#E84A5F",      # Window Name Text                  (Qtile Bar)
+    "win"  :  "#cccccc",      # Window Name Text                  (Qtile Bar)
     "vol"  :  "#e5c07b",      # Volume      Icon                  (Qtile Bar)
     "upd"  :  "#e06c75",      # Updates     Icon                  (Qtile Bar)
     "cpu"  :  "#cccccc",      # CPU         Icon                  (Qtile Bar)

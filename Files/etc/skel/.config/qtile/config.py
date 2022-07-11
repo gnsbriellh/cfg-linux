@@ -49,7 +49,7 @@ from colors import colors
 #                            |___/     
 
 auto_fullscreen = False                 # Prevents a Window to automaticaly set itself to fullscreen when not asked
-bring_front_click = True                # Bring a Window to Front When Clicked
+bring_front_click = False               # Bring a Floating Window to Front Only When Clicked
 cursor_warp = False                     # Cursor Follows window selection, and warps to center
 follow_mouse_focus = False              # Mouse Hover to Change Window Focus
 focus_on_window_activation = "smart"    # _NET_ACTIVATE_WINDOW Behavior
@@ -425,10 +425,6 @@ screens = [
                     padding = 0
                 ),
 
-                ###############
-                ## WORKSPACES #
-                ###############
-
                 widget.GroupBox(
                     active = colors["fg"],
                     inactive = colors["fg"],
@@ -448,10 +444,6 @@ screens = [
                     padding = 6
                 ),
 
-                ################
-                ## WINDOW NAME #
-                ################
-
                 widget.WindowName(
                     background = colors["bg"],
                     foreground = colors["win"],
@@ -466,19 +458,11 @@ screens = [
                     padding = 1
                 ),
 
-                ################
-                ## SYSTEM TRAY #
-                ################
-
                 widget.Systray(
                     background = colors["bg"]
                 ),
 
                 widget.Sep(**qtile_bar_separator),
-
-                ###########
-                ## VOLUME #
-                ###########
 
                 widget.TextBox(
                     **qtile_bar_icons,
@@ -495,10 +479,6 @@ screens = [
                 ),
 
                 widget.Sep(**qtile_bar_separator),
-
-                ############
-                ## Updates #
-                ############
 
                 widget.TextBox(
                     **qtile_bar_icons,
@@ -517,10 +497,6 @@ screens = [
 
                 widget.Sep(**qtile_bar_separator),
 
-                ##############
-                ## PROCESSOR #
-                ##############
-
                 widget.TextBox(
                     **qtile_bar_icons,
                     foreground = colors["cpu"],
@@ -536,10 +512,6 @@ screens = [
 
                 widget.Sep(**qtile_bar_separator),
 
-                ################
-                ## TEMPERATURE #
-                ################
-
                 widget.TextBox(
                     **qtile_bar_icons,
                     foreground = colors["gpu"],
@@ -552,10 +524,6 @@ screens = [
                 ),
 
                 widget.Sep(**qtile_bar_separator),
-
-                ###########
-                ## MEMORY #
-                ###########
 
                 widget.TextBox(
                     **qtile_bar_icons,
@@ -570,10 +538,6 @@ screens = [
                 ),
 
                 widget.Sep(**qtile_bar_separator),
-
-                #############
-                ## POMODORO #
-                #############
 
                 widget.TextBox(
                     **qtile_bar_icons,
@@ -595,10 +559,6 @@ screens = [
                 ),
 
                 widget.Sep(**qtile_bar_separator),
-
-                ##########
-                ## CLOCK #
-                ##########
 
                 widget.TextBox(
                     **qtile_bar_icons,

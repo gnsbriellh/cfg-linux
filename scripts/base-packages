@@ -44,13 +44,14 @@ sudo pacman -S              \
     python-pip              \
     qtile                   \
     nitrogen                \
-    dmenu                   \
+    qt5ct                   \
+    lxappearance            \
     picom                   \
+    xsel                    \
     rofi                    \
     rofi-emoji              \
     slock                   \
     alacritty               \
-    xterm                   \
     ufw                     \
     unzip                   \
     wget                    \
@@ -146,7 +147,9 @@ sudo pacman -S              \
         mkdir -v -p ~/Desktop/
 
 ## Set Keyboard Layout in X11 ##
-    localectl --no-ask-password --no-convert set-x11-keymap us pc104 intl grp:win_space_toggle
+
+    # us-intl
+        localectl --no-ask-password --no-convert set-x11-keymap us pc104 intl grp:win_space_toggle
 
 # Done
     echo "DONE !" ; sleep 2 

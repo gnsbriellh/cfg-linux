@@ -89,18 +89,22 @@ EOF
 echo   ; sleep 2 ;
 
 # Move/Create Folders #
-    cp -r -v $PWD/Files/etc /
+    cp -r -v $PWD/Files /
     cp -v $PWD/Files/etc/skel/.bash* /root/
+    mkdir -v /root/.config/
+    cp -v $PWD/Files/etc/skel/.config/bash /root/.config/
 
 # Read Username
     read -p "Enter USERNAME: " SET_USER ; echo  
+    read -p "Enter User Full Name: " SET_USER_NAME ; echo  
 
 # Create User
-    useradd -m -G wheel -s /bin/bash $SET_USER
+    useradd --badname -m -G wheel -s /bin/bash "$SET_USER"
+    usermod -c "$SET_USER_NAME" "$SET_USER"
 
 # Change Passwd from $SET_USER and root
-    echo "Set password for $SET_USER"
-    passwd $SET_USER
+    echo "Set password for "$SET_USER""
+    passwd "$SET_USER"
 
     echo "Set password for root user"
     passwd root
