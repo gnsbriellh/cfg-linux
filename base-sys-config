@@ -57,6 +57,8 @@ echo   ; sleep 2 ;
 # Update Repository
     pacman -Syy --noconfirm
 
+# 
+
 # GRUB #
     pacman -S               \
     grub                    \
@@ -88,11 +90,16 @@ EOF
 
 echo   ; sleep 2 ;
 
-# Move/Create Folders #
-    cp -r -v $PWD/Files /
-    cp -v $PWD/Files/etc/skel/.bash* /root/
-    mkdir -v /root/.config/
-    cp -v $PWD/Files/etc/skel/.config/bash /root/.config/
+# Setup Home Folders and Some Config Files #
+    cp -rv $PWD/etc /
+    mkdir -v /etc/skel/Desktop
+    mkdir -v /etc/skel/Documents
+    mkdir -v /etc/skel/Downloads
+    mkdir -v /etc/skel/Media
+    mkdir -v /etc/skel/Media/Music
+    mkdir -v /etc/skel/Media/Pictures
+    mkdir -v /etc/skel/Media/Wallpapers
+    mkdir -v /etc/skel/Projects
 
 # Read Username
     read -p "Enter USERNAME: " SET_USER ; echo  

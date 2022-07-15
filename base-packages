@@ -1,0 +1,155 @@
+#!/bin/bash
+
+cat << "EOF" 
+     _______                                         _______                      __                                              
+    |       \                                       |       \                    |  \                                             
+    | $$$$$$$\  ______    _______   ______          | $$$$$$$\ ______    _______ | $$   __  ______    ______    ______    _______ 
+    | $$__/ $$ |      \  /       \ /      \  ______ | $$__/ $$|      \  /       \| $$  /  \|      \  /      \  /      \  /       \
+    | $$    $$  \$$$$$$\|  $$$$$$$|  $$$$$$\|      \| $$    $$ \$$$$$$\|  $$$$$$$| $$_/  $$ \$$$$$$\|  $$$$$$\|  $$$$$$\|  $$$$$$$
+    | $$$$$$$\ /      $$ \$$    \ | $$    $$ \$$$$$$| $$$$$$$ /      $$| $$      | $$   $$ /      $$| $$  | $$| $$    $$ \$$    \ 
+    | $$__/ $$|  $$$$$$$ _\$$$$$$\| $$$$$$$$        | $$     |  $$$$$$$| $$_____ | $$$$$$\|  $$$$$$$| $$__| $$| $$$$$$$$ _\$$$$$$\
+    | $$    $$ \$$    $$|       $$ \$$     \        | $$      \$$    $$ \$$     \| $$  \$$\\$$    $$ \$$    $$ \$$     \|       $$
+     \$$$$$$$   \$$$$$$$ \$$$$$$$   \$$$$$$$         \$$       \$$$$$$$  \$$$$$$$ \$$   \$$ \$$$$$$$ _\$$$$$$$  \$$$$$$$ \$$$$$$$ 
+                                                                                                    |  \__| $$                    
+                                                                                                     \$$    $$                    
+                                                                                                      \$$$$$$                     
+                                                                                                                                  
+EOF
+echo   ; sleep 2 ;
+
+echo "Installing Drivers and Some Must Have Tools..." ; sleep 2 ;
+    sudo pacman -S              \
+        man-db                  \
+        man-pages               \
+        dosfstools              \
+        mtools                  \
+        wpa_supplicant          \
+        wireless_tools          \
+        dialog                  \
+        network-manager-applet  \
+        xorg                    \
+        mesa                    \
+        lib32-mesa              \
+        xf86-video-amdgpu       \
+        vulkan-radeon           \
+        lib32-vulkan-radeon     \
+        libva-mesa-driver       \
+        lib32-libva-mesa-driver \
+        mesa-vdpau              \
+        lib32-mesa-vdpau        \
+        ufw                     \
+        unzip                   \
+        wget                    \
+        curl                    \
+        gnome-keyring           \
+        libsecret               \
+        libgnome-keyring        --noconfirm
+
+echo "Installing Audio Driver..." ; sleep 2 ;
+    sudo pacman -S              \
+        pulseaudio              \
+        lib32-libpulse          \
+        pulseaudio-alsa         \
+        lib32-alsa-plugins      \
+        pulsemixer              --noconfirm
+
+echo "Installing Window Manager..." ; sleep 2 ;
+    sudo pacman -S              \
+        python3                 \
+        python-psutil           \
+        python-pip              \
+        qtile                   \
+        dunst                   \
+        picom                   \
+        nitrogen                \
+        qt5ct                   \
+        lxappearance            \
+        iw                      \
+        xsel                    \
+        rofi                    \
+        rofi-emoji              \
+        slock                   \
+        alacritty               --noconfirm
+
+echo "Installing Applications..." ; sleep 2 ;
+    sudo pacman -S              \
+        firefox                 \
+        virtualbox              \
+        piper                   \
+        steam                   \
+        lutris                  \
+        discord                 \
+        thunderbird             \
+        telegram-desktop        \
+        qbittorrent             \
+        neofetch                \
+        htop                    \
+        btop                    \
+        freerdp                 \
+        thunar                  --noconfirm
+
+echo "Installing Fonts..." ; sleep 2 ;
+    sudo pacman -S              \
+        noto-fonts-emoji        \
+        lib32-fontconfig        \
+        ttf-liberation          \
+        wqy-zenhei              --noconfirm
+
+    mkdir -pv $PWD/Downloads/Fonts
+    # Nerd Fonts (Hack) #
+        wget -c -P $PWD/Downloads/Fonts/ https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
+        mkdir ~/.local/share/fonts/Hack/ -p -v
+        unzip $PWD/Downloads/Fonts/'Hack.zip' -d ~/.local/share/fonts/Hack/
+
+    # Nerd Fonts (FiraCode)
+        wget -c -P $PWD/Downloads/Fonts/ https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
+        mkdir ~/.local/share/fonts/FiraCode/ -p -v
+        unzip $PWD/Downloads/Fonts/'FiraCode.zip' -d ~/.local/share/fonts/FiraCode/
+
+    # Icons (Material Design Fonts)
+        git clone https://github.com/Templarian/MaterialDesign-Font.git ~/.local/share/fonts/MaterialDesign-Font/
+
+    # Refresh Fonts Cache
+        fc-cache -r
+
+
+echo "Installing AUR Packages..." ; sleep 2 ;
+
+## Arch User Repository ##
+
+    mkdir -pv $PWD/Downloads/AUR
+    cd $PWD/Downloads/AUR/
+
+        # Login Manager (LY)
+            git clone https://aur.archlinux.org/ly.git
+            cd ly ; yes | makepkg -si ; cd ..
+
+        # Spotify #
+            curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | gpg --import -
+            git clone https://aur.archlinux.org/spotify.git
+            cd spotify ; yes | makepkg -si ; cd ..
+
+        # VSCode #
+            git clone https://aur.archlinux.org/visual-studio-code-bin.git
+            cd visual-studio-code-bin ; yes | makepkg -si ; cd ..
+
+    cd .. ; cd ..
+
+echo "Installing NVM..." ; sleep 2 ;
+
+    # NVM (Nodejs) #
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+        nvm install 16 ; nvm use 16
+
+echo "Setting up Keyboard Layout..." ; sleep 2 ;
+    localectl --no-ask-password --no-convert set-x11-keymap us pc104 intl grp:win_space_toggle
+
+echo "Enabling Services..." ; sleep ;
+    sudo systemctl enable ufw.service
+    sudo systemctl enable ly.service
+
+# Done
+    echo "DONE !" ; sleep 2 
