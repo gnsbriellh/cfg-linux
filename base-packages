@@ -24,6 +24,7 @@ echo "Installing Drivers and Some Must Have Tools..." ; sleep 2 ;
         dosfstools              \
         mtools                  \
         wpa_supplicant          \
+        netctl                  \
         wireless_tools          \
         dialog                  \
         network-manager-applet  \
@@ -146,6 +147,9 @@ echo "Installing NVM..." ; sleep 2 ;
 
 echo "Setting up Keyboard Layout..." ; sleep 2 ;
     localectl --no-ask-password --no-convert set-x11-keymap us pc104 intl grp:win_space_toggle
+
+echo "Moving config files..." ; sleep 2 ;
+    sudo cp -rv $PWD/etc /
 
 echo "Enabling Services..." ; sleep ;
     sudo systemctl enable ufw.service
