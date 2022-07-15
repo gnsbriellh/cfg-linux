@@ -1,4 +1,5 @@
 #!/bin/bash
+clear ;
 cat << "EOF"
       ______                         __                                       ______                        ______   __           
      /      \                       |  \                                     /      \                      /      \ |  \          
@@ -57,8 +58,6 @@ echo   ; sleep 2 ;
 # Update Repository
     pacman -Syy --noconfirm
 
-# 
-
 # GRUB #
     pacman -S               \
     grub                    \
@@ -99,6 +98,7 @@ echo   ; sleep 2 ;
     mkdir -v /etc/skel/Media/Pictures
     mkdir -v /etc/skel/Media/Wallpapers
     mkdir -v /etc/skel/Projects
+    mkdir -v /etc/skel/Repositories
 
 # Read Username
     read -p "Enter USERNAME: " SET_USER ; echo  
@@ -124,6 +124,10 @@ echo   ; sleep 2 ;
             * ) echo "Please answer with Y[es] or N[o].";;
         esac
     done
+
+    su $SET_USER
+    git clone https://github.com/gnsbriellh/cfg-linux.git
+    exit
 
 # Done
     echo "User set-up has been completed !" ; sleep 2

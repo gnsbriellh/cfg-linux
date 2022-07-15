@@ -1,5 +1,5 @@
 #!/bin/bash
-
+clear ;
 cat << "EOF" 
      _______                                         _______                      __                                              
     |       \                                       |       \                    |  \                                             
@@ -28,6 +28,7 @@ echo "Installing Drivers and Some Must Have Tools..." ; sleep 2 ;
         wireless_tools          \
         dialog                  \
         network-manager-applet  \
+        volumeicon              \
         xorg                    \
         mesa                    \
         lib32-mesa              \
@@ -113,7 +114,6 @@ echo "Installing Fonts..." ; sleep 2 ;
     # Refresh Fonts Cache
         fc-cache -r
 
-
 echo "Installing AUR Packages..." ; sleep 2 ;
 
 ## Arch User Repository ##
@@ -145,9 +145,6 @@ echo "Installing NVM..." ; sleep 2 ;
         [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
         nvm install 16 ; nvm use 16
 
-echo "Setting up Keyboard Layout..." ; sleep 2 ;
-    localectl --no-ask-password --no-convert set-x11-keymap us pc104 intl grp:win_space_toggle
-
 echo "Moving config files..." ; sleep 2 ;
     sudo cp -rv $PWD/etc /
 
@@ -155,5 +152,15 @@ echo "Enabling Services..." ; sleep ;
     sudo systemctl enable ufw.service
     sudo systemctl enable ly.service
 
+#echo "Configuring keyboard layout..." ; sleep 2 ;
+#    localectl --no-ask-password --no-convert set-x11-keymap us pc104 intl grp:win_space_toggle
+
+echo "Fetching .dotfiles..." ; sleep 2 ;
+    git clone https://github.com/gnsbriellh/.dotfiles.git $HOME/.dotfiles
+    cd $HOME/.dotfiles ; bash install.sh
+
+echo "Fetching Wallpapers..." ; sleep 2 ;
+    git clone https://github.com/gnsbriellh/Wallpapers.git $HOME/Media/Pictures/Wallpapers
+
 # Done
-    echo "DONE !" ; sleep 2 
+    echo "DONE !" ; sleep 2
