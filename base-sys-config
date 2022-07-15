@@ -90,8 +90,7 @@ EOF
 
 echo   ; sleep 2 ;
 
-# Setup Home Folders and Some Config Files #
-    cp -rv $PWD/etc /
+# Setup Home Folders #
     mkdir -v /etc/skel/Desktop
     mkdir -v /etc/skel/Documents
     mkdir -v /etc/skel/Downloads
