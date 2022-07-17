@@ -24,10 +24,10 @@ echo "Installing Drivers and Some Must Have Tools..." ; sleep 2 ;
         dosfstools              \
         mtools                  \
         wpa_supplicant          \
-        netctl                  \
         wireless_tools          \
         dialog                  \
         network-manager-applet  \
+        cbatticon               \
         volumeicon              \
         xorg                    \
         mesa                    \
@@ -47,6 +47,9 @@ echo "Installing Drivers and Some Must Have Tools..." ; sleep 2 ;
         libsecret               \
         libgnome-keyring        --noconfirm
 
+## wifi-menu if networkmanager doesn't work...
+    #sudo pacman -S netctl --noconfirm
+
 echo "Installing Audio Driver..." ; sleep 2 ;
     sudo pacman -S              \
         pulseaudio              \
@@ -62,7 +65,6 @@ echo "Installing Window Manager..." ; sleep 2 ;
         python-pip              \
         qtile                   \
         dunst                   \
-        picom                   \
         nitrogen                \
         qt5ct                   \
         lxappearance            \
@@ -71,24 +73,29 @@ echo "Installing Window Manager..." ; sleep 2 ;
         rofi                    \
         rofi-emoji              \
         slock                   \
+        arc-gtk-theme           \
+        papirus-icon-theme      \
+        capitaine-cursors       \
         alacritty               --noconfirm
 
 echo "Installing Applications..." ; sleep 2 ;
-    sudo pacman -S              \
-        firefox                 \
-        virtualbox              \
-        piper                   \
-        steam                   \
-        lutris                  \
-        discord                 \
-        thunderbird             \
-        telegram-desktop        \
-        qbittorrent             \
-        neofetch                \
-        htop                    \
-        btop                    \
-        freerdp                 \
-        thunar                  --noconfirm
+    sudo pacman -S                      \
+        firefox                         \
+        virtualbox-host-modules-arch    \
+        virtualbox                      \
+        piper                           \
+        steam                           \
+        lutris                          \
+        discord                         \
+        thunderbird                     \
+        telegram-desktop                \
+        qbittorrent                     \
+        neofetch                        \
+        cmatrix                         \
+        htop                            \
+        btop                            \
+        freerdp                         \
+        thunar                          --noconfirm
 
 echo "Installing Fonts..." ; sleep 2 ;
     sudo pacman -S              \
@@ -124,6 +131,10 @@ echo "Installing AUR Packages..." ; sleep 2 ;
         # Login Manager (LY)
             git clone https://aur.archlinux.org/ly.git
             cd ly ; yes | makepkg -si ; cd ..
+
+        # Picom (Jonaburg's Fork)
+            git clone https://github.com/jonaburg/picom.git
+            cd picom ; yes | makepkg -si ; cd ..
 
         # Spotify #
             curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | gpg --import -
@@ -161,6 +172,7 @@ echo "Fetching .dotfiles..." ; sleep 2 ;
 
 echo "Fetching Wallpapers..." ; sleep 2 ;
     git clone https://github.com/gnsbriellh/Wallpapers.git $HOME/Media/Pictures/Wallpapers
+    yes | rm -r $HOME/Media/Pictures/Wallpapers/.git
 
 # Done
     echo "DONE !" ; sleep 2
