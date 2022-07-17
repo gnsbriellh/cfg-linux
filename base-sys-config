@@ -125,9 +125,5 @@ echo   ; sleep 2 ;
         esac
     done
 
-    su $SET_USER
-    git clone https://github.com/gnsbriellh/cfg-linux.git
-    exit
-
 # Done
     echo "User set-up has been completed !" ; sleep 2
