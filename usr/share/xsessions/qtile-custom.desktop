@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Qtile (dbus-launch)
+Comment=Qtile Session
+Exec=dbus-launch --auto-syntax qtile start
+Type=Application
+Keywords=wm;tiling
