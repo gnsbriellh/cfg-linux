@@ -96,8 +96,10 @@ echo   ; sleep 2 ;
     mkdir -v /etc/skel/Media
     mkdir -v /etc/skel/Media/Music
     mkdir -v /etc/skel/Media/Pictures
+    mkdir -v /etc/skel/Media/Screenshots
     mkdir -v /etc/skel/Media/Wallpapers
     mkdir -v /etc/skel/Projects
+    mkdir -v /etc/skel/Video\ Games
     mkdir -v /etc/skel/Repositories
 
 # Read Username
