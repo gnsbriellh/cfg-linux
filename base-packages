@@ -66,7 +66,7 @@ echo "Installing Window Manager..." ; sleep 2 ;
         qtile                   \
         dunst                   \
         nitrogen                \
-        qt5ct                   \
+        kvantum                 \
         lxappearance            \
         iw                      \
         xsel                    \
@@ -87,6 +87,7 @@ echo "Installing Applications..." ; sleep 2 ;
         steam                           \
         lutris                          \
         discord                         \
+        flameshot                       \
         thunderbird                     \
         telegram-desktop                \
         qbittorrent                     \
@@ -158,6 +159,7 @@ echo "Installing NVM..." ; sleep 2 ;
 
 echo "Moving config files..." ; sleep 2 ;
     sudo cp -rv $PWD/etc /
+    sudo cp -rv $PWD/usr /
 
 echo "Enabling Services..." ; sleep ;
     sudo systemctl enable ufw.service
@@ -172,7 +174,6 @@ echo "Fetching .dotfiles..." ; sleep 2 ;
 
 echo "Fetching Wallpapers..." ; sleep 2 ;
     git clone https://github.com/gnsbriellh/Wallpapers.git $HOME/Media/Pictures/Wallpapers
-    yes | rm -r $HOME/Media/Pictures/Wallpapers/.git
 
 # Done
     echo "DONE !" ; sleep 2
