@@ -26,6 +26,8 @@ echo "Installing Drivers and Some Must Have Tools..." ; sleep 2 ;
         wpa_supplicant          \
         wireless_tools          \
         dialog                  \
+        polkit                  \
+        lxsession               \
         network-manager-applet  \
         cbatticon               \
         volumeicon              \
@@ -89,7 +91,6 @@ echo "Installing Applications..." ; sleep 2 ;
         discord                         \
         flameshot                       \
         thunderbird                     \
-        telegram-desktop                \
         qbittorrent                     \
         neofetch                        \
         cmatrix                         \
