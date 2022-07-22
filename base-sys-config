@@ -46,7 +46,7 @@ echo   ; sleep 2 ;
 # Configure Hosts
     echo "127.0.0.1     localhost" >> /etc/hosts
     echo "::1           localhost" >> /etc/hosts
-    echo "127.0.1.1     $SET_HOSTNAME.localdomain $SET_HOSTNAME" >> /etc/hosts
+    echo "127.0.1.1     $SET_HOSTNAME" >> /etc/hosts
 
 # Configuring Keyboard Layout (Console)
     echo "KEYMAP=us" >> /etc/vconsole.conf
@@ -114,12 +114,18 @@ echo   ; sleep 2 ;
     echo "Set password for "$SET_USER""
     passwd "$SET_USER"
 
-    echo "Set password for root user"
-    passwd root
+    while true; do
+        read -p "Would you like to set password for root user ? [Y/n] " yn
+        case $yn in
+            [Yy]* ) passwd root; break;;
+            [Nn]* ) echo "Not set !"; sleep 2 ; break;;
+            * ) echo "Please answer with Y[es] or N[o].";;
+        esac
+    done
 
 # PROMPT TO OPEN VISUDO WITH NANO #
     while true; do
-        read -p "Would you like to config VISUDO with nano ?  [Y/n] " yn
+        read -p "Would you like to config VISUDO with nano ? [Y/n] " yn
         case $yn in
             [Yy]* ) EDITOR=nano visudo; break;;
             [Nn]* ) echo "Cancelled !"; sleep 2 ; break;;
