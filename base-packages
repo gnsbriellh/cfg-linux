@@ -15,142 +15,88 @@ cat << "EOF"
                                                                                                       \$$$$$$                     
                                                                                                                                   
 EOF
-echo   ; sleep 2 ;
+echo   ; sleep 5 ;
 
-echo "Installing Drivers and Some Must Have Tools..." ; sleep 2 ;
-    sudo pacman -S              \
-        man-db                  \
-        man-pages               \
-        dosfstools              \
-        mtools                  \
-        wpa_supplicant          \
-        wireless_tools          \
-        dialog                  \
-        polkit                  \
-        lxsession               \
-        network-manager-applet  \
-        cbatticon               \
-        volumeicon              \
-        xorg                    \
-        mesa                    \
-        lib32-mesa              \
-        xf86-video-amdgpu       \
-        vulkan-radeon           \
-        lib32-vulkan-radeon     \
-        libva-mesa-driver       \
-        lib32-libva-mesa-driver \
-        mesa-vdpau              \
-        lib32-mesa-vdpau        \
-        ufw                     \
-        unzip                   \
-        wget                    \
-        curl                    \
-        gnome-keyring           \
-        libsecret               \
-        libgnome-keyring        --noconfirm
+# Drivers and Tools #
 
-## wifi-menu if networkmanager doesn't work...
-    #sudo pacman -S netctl --noconfirm
+    sudo pacman -S man-db                           --noconfirm # Manual database.
+    sudo pacman -S man-pages                        --noconfirm # Manual pages.
+    sudo pacman -S dosfstools                       --noconfirm # Patitions/Disk formating tool.
+    sudo pacman -S mtools                           --noconfirm # Collection of utilities to access MS-DOS disks without mounting them.
+    sudo pacman -S wpa_supplicant                   --noconfirm # Support for WPA, WPA2 and WPA3 (IEEE 802.11i).
+    sudo pacman -S wireless_tools                   --noconfirm # Tools allowing to manipulate the Wireless Extensions.
+    sudo pacman -S dialog                           --noconfirm # Dialog boxes from a shell script.
+    sudo pacman -S polkit                           --noconfirm # Policy Kit.
+    sudo pacman -S lxsession                        --noconfirm # Session starter and manager.
+    sudo pacman -S sddm                             --noconfirm # Display Manager, aka Login Manager.
+    sudo pacman -S network-manager-applet           --noconfirm # System Tray icon for networking.
+    sudo pacman -S cbatticon                        --noconfirm # System Tray icon for laptop battery.
+    sudo pacman -S volumeicon                       --noconfirm # System Tray icon for volume.
+    sudo pacman -S xorg                             --noconfirm # Display Server.
+    sudo pacman -S mesa                             --noconfirm # GPU Driver.
+    sudo pacman -S lib32-mesa                       --noconfirm # GPU Driver.
+    sudo pacman -S xf86-video-amdgpu                --noconfirm # GPU Driver.
+    sudo pacman -S vulkan-radeon                    --noconfirm # GPU Driver.
+    sudo pacman -S lib32-vulkan-radeon              --noconfirm # GPU Driver.
+    sudo pacman -S libva-mesa-driver                --noconfirm # GPU Driver.
+    sudo pacman -S lib32-libva-mesa-driver          --noconfirm # GPU Driver.
+    sudo pacman -S mesa-vdpau                       --noconfirm # GPU Driver.
+    sudo pacman -S lib32-mesa-vdpau                 --noconfirm # GPU Driver.
+    sudo pacman -S udisks2                          --noconfirm # Manage removable storage devices.
+    sudo pacman -S udiskie                          --noconfirm # Auto mount removable sotrage devices.
+    sudo pacman -S ufw                              --noconfirm # Firewall.
+    sudo pacman -S unzip                            --noconfirm # Decompression Tool.
+    sudo pacman -S wget                             --noconfirm # Software package for retrieving files using HTTP, HTTPS, FTP and FTPS.
+    sudo pacman -S curl                             --noconfirm # Software package for retrieving files using various protocols.
+        sudo systemctl enable ufw.service                       # Enable Firewall
+        sudo systemctl enable sddm.service                      # Enable Display Manager
 
-echo "Installing Audio Driver..." ; sleep 2 ;
-    sudo pacman -S              \
-        pulseaudio              \
-        lib32-libpulse          \
-        pulseaudio-alsa         \
-        lib32-alsa-plugins      \
-        pulsemixer              --noconfirm
+# Audio Setup #
 
-echo "Installing Window Manager..." ; sleep 2 ;
-    sudo pacman -S              \
-        python3                 \
-        python-psutil           \
-        python-pip              \
-        qtile                   \
-        dunst                   \
-        nitrogen                \
-        kvantum                 \
-        lxappearance            \
-        iw                      \
-        xsel                    \
-        rofi                    \
-        rofi-emoji              \
-        slock                   \
-        arc-gtk-theme           \
-        papirus-icon-theme      \
-        capitaine-cursors       \
-        alacritty               --noconfirm
+    sudo pacman -S pulseaudio                       --noconfirm # Sound server.
+    sudo pacman -S lib32-libpulse                   --noconfirm # Sound server.
+    sudo pacman -S pulseaudio-alsa                  --noconfirm # Sound server.
+    sudo pacman -S lib32-alsa-plugins               --noconfirm # Sound server.
+    sudo pacman -S pulsemixer                       --noconfirm # Sound mixer.
 
-echo "Installing Applications..." ; sleep 2 ;
-    sudo pacman -S                      \
-        firefox                         \
-        virtualbox-host-modules-arch    \
-        virtualbox                      \
-        piper                           \
-        steam                           \
-        lutris                          \
-        discord                         \
-        flameshot                       \
-        thunderbird                     \
-        qbittorrent                     \
-        neofetch                        \
-        cmatrix                         \
-        htop                            \
-        btop                            \
-        freerdp                         \
-        thunar                          --noconfirm
+# Window Manager / Desktop Environment #
 
-echo "Installing Fonts..." ; sleep 2 ;
-    sudo pacman -S              \
-        noto-fonts-emoji        \
-        lib32-fontconfig        \
-        ttf-liberation          \
-        wqy-zenhei              --noconfirm
+    sudo pacman -S qtile                            --noconfirm # Window Manager.
+    sudo pacman -S slock                            --noconfirm # Session Lock.
+    sudo pacman -S dunst                            --noconfirm # Notifications.
+    sudo pacman -S nitrogen                         --noconfirm # Wallpaper manager.
+    sudo pacman -S kvantum                          --noconfirm # Qt5 Theme engine.
+    sudo pacman -S lxappearance                     --noconfirm # GTK Theme engine.
+    sudo pacman -S arc-gtk-theme                    --noconfirm # GTK Theme.
+    sudo pacman -S papirus-icon-theme               --noconfirm # Icon Theme.
+    sudo pacman -S capitaine-cursors                --noconfirm # Cursor Theme.
+    sudo pacman -S rofi                             --noconfirm # Run menu.
+    sudo pacman -S rofi-emoji                       --noconfirm # Run menu (For emojies selection).
+    sudo pacman -S xsel                             --noconfirm # Clipboard Manager.
+    sudo pacman -S python3                          --noconfirm # Python.
+    sudo pacman -S python-pip                       --noconfirm # Python - PIP.
+    sudo pacman -S python-psutil                    --noconfirm # Python - Utility.
 
-    mkdir -pv $PWD/Downloads/Fonts
-    # Nerd Fonts (Hack) #
-        wget -c -P $PWD/Downloads/Fonts/ https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
-        mkdir ~/.local/share/fonts/Hack/ -p -v
-        unzip $PWD/Downloads/Fonts/'Hack.zip' -d ~/.local/share/fonts/Hack/
+# Applications #
 
-    # Nerd Fonts (FiraCode)
-        wget -c -P $PWD/Downloads/Fonts/ https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
-        mkdir ~/.local/share/fonts/FiraCode/ -p -v
-        unzip $PWD/Downloads/Fonts/'FiraCode.zip' -d ~/.local/share/fonts/FiraCode/
-
-    # Icons (Material Design Fonts)
-        git clone https://github.com/Templarian/MaterialDesign-Font.git ~/.local/share/fonts/MaterialDesign-Font/
-
-    # Refresh Fonts Cache
-        fc-cache -r
-
-echo "Installing AUR Packages..." ; sleep 2 ;
-
-## Arch User Repository ##
-
-    mkdir -pv $PWD/Downloads/AUR
-    cd $PWD/Downloads/AUR/
-
-        # Login Manager (LY)
-            git clone https://aur.archlinux.org/ly.git
-            cd ly ; yes | makepkg -si ; cd ..
-
-        # Picom (Jonaburg's Fork)
-            git clone https://github.com/jonaburg/picom.git
-            cd picom ; yes | makepkg -si ; cd ..
-
-        # Spotify #
-            curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | gpg --import -
-            git clone https://aur.archlinux.org/spotify.git
-            cd spotify ; yes | makepkg -si ; cd ..
-
-        # VSCode #
-            git clone https://aur.archlinux.org/visual-studio-code-bin.git
-            cd visual-studio-code-bin ; yes | makepkg -si ; cd ..
-
-    cd .. ; cd ..
-
-echo "Installing NVM..." ; sleep 2 ;
-
+    sudo pacman -S alacritty                        --noconfirm # Terminal Emulator.
+    sudo pacman -S firefox                          --noconfirm # Web Browser.
+    sudo pacman -S virtualbox-host-modules-arch     --noconfirm # Virtualbox modules.
+    sudo pacman -S virtualbox                       --noconfirm # Virtualbox.
+    sudo pacman -S piper                            --noconfirm # Mouse Software.
+    sudo pacman -S steam                            --noconfirm # Steam Library.
+    sudo pacman -S lutris                           --noconfirm # Software to setup non steam games.
+    sudo pacman -S code                             --noconfirm # Visual Studio Code (Code -OSS).
+    sudo pacman -S discord                          --noconfirm # Discord.
+    sudo pacman -S flameshot                        --noconfirm # Screenshot tool.
+    sudo pacman -S thunderbird                      --noconfirm # E-mail client.
+    sudo pacman -S qbittorrent                      --noconfirm # Torrent downloader.
+    sudo pacman -S neofetch                         --noconfirm # Bloat...
+    sudo pacman -S cmatrix                          --noconfirm # Bloat...
+    sudo pacman -S htop                             --noconfirm # System Monitor.
+    sudo pacman -S btop                             --noconfirm # System Monitor.
+    sudo pacman -S freerdp                          --noconfirm # Remote Desktop Connection tool.
+    sudo pacman -S thunar                           --noconfirm # File manager.
     # NVM (Nodejs) #
         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
         export NVM_DIR="$HOME/.nvm"
@@ -158,23 +104,52 @@ echo "Installing NVM..." ; sleep 2 ;
         [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
         nvm install 16 ; nvm use 16
 
-echo "Moving config files..." ; sleep 2 ;
+# Fonts #
+
+    sudo pacman -S noto-fonts-emoji                 --noconfirm # Emoji Fonts.
+    sudo pacman -S lib32-fontconfig                 --noconfirm # Fix Steam Font.
+    sudo pacman -S ttf-liberation                   --noconfirm # Fix Steam Font.
+    sudo pacman -S wqy-zenhei                       --noconfirm # Fix Steam Font.
+    mkdir -pv $PWD/Downloads/Fonts
+    # Nerd Fonts (Hack) #
+        wget -c -P $PWD/Downloads/Fonts/ https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
+        mkdir ~/.local/share/fonts/Hack/ -p -v
+        unzip $PWD/Downloads/Fonts/'Hack.zip' -d ~/.local/share/fonts/Hack/
+    # Nerd Fonts (FiraCode)
+        wget -c -P $PWD/Downloads/Fonts/ https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
+        mkdir ~/.local/share/fonts/FiraCode/ -p -v
+        unzip $PWD/Downloads/Fonts/'FiraCode.zip' -d ~/.local/share/fonts/FiraCode/
+    # Icons (Material Design Fonts)
+        git clone https://github.com/Templarian/MaterialDesign-Font.git ~/.local/share/fonts/MaterialDesign-Font/
+    # Refresh Fonts Cache
+        fc-cache -r
+
+# Arch User Repository #
+
+    mkdir -pv $PWD/Downloads/AUR
+    cd $PWD/Downloads/AUR/
+
+        # Spotify #
+            curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | gpg --import -
+            git clone https://aur.archlinux.org/spotify.git
+            cd spotify ; yes | makepkg -si ; cd ..
+
+    cd .. ; cd ..
+
+# Setup config files #
+
     sudo cp -rv $PWD/etc /
     sudo cp -rv $PWD/usr /
 
-echo "Enabling Services..." ; sleep ;
-    sudo systemctl enable ufw.service
-    sudo systemctl enable ly.service
+# Dotfiles #
 
-#echo "Configuring keyboard layout..." ; sleep 2 ;
-#    localectl --no-ask-password --no-convert set-x11-keymap us pc104 intl grp:win_space_toggle
-
-echo "Fetching .dotfiles..." ; sleep 2 ;
     git clone https://github.com/gnsbriellh/.dotfiles.git $HOME/.dotfiles
     cd $HOME/.dotfiles ; bash install.sh
 
-echo "Fetching Wallpapers..." ; sleep 2 ;
+# Wallpapers #
+
     git clone https://github.com/gnsbriellh/Wallpapers.git $HOME/Media/Pictures/Wallpapers
 
 # Done
-    echo "DONE !" ; sleep 2
+
+    echo "DONE !" ; sleep 5
