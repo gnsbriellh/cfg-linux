@@ -26,8 +26,8 @@ echo   ; sleep 5 ;
     sudo pacman -S wpa_supplicant                   --noconfirm # Support for WPA, WPA2 and WPA3 (IEEE 802.11i).
     sudo pacman -S wireless_tools                   --noconfirm # Tools allowing to manipulate the Wireless Extensions.
     sudo pacman -S dialog                           --noconfirm # Dialog boxes from a shell script.
-    sudo pacman -S polkit                           --noconfirm # Policy Kit.
-    sudo pacman -S lxsession                        --noconfirm # Session starter and manager.
+    #sudo pacman -S polkit                           --noconfirm # Policy Kit.
+    #sudo pacman -S lxsession                        --noconfirm # Session starter and manager.
     sudo pacman -S sddm                             --noconfirm # Display Manager, aka Login Manager.
     sudo pacman -S network-manager-applet           --noconfirm # System Tray icon for networking.
     sudo pacman -S cbatticon                        --noconfirm # System Tray icon for laptop battery.
@@ -86,7 +86,7 @@ echo   ; sleep 5 ;
     sudo pacman -S piper                            --noconfirm # Mouse Software.
     sudo pacman -S steam                            --noconfirm # Steam Library.
     sudo pacman -S lutris                           --noconfirm # Software to setup non steam games.
-    sudo pacman -S code                             --noconfirm # Visual Studio Code (Code -OSS).
+    #sudo pacman -S code                             --noconfirm # Visual Studio Code (Code -OSS).
     sudo pacman -S discord                          --noconfirm # Discord.
     sudo pacman -S flameshot                        --noconfirm # Screenshot tool.
     sudo pacman -S thunderbird                      --noconfirm # E-mail client.
@@ -136,6 +136,10 @@ echo   ; sleep 5 ;
         # Picom #
             git clone https://aur.archlinux.org/picom-jonaburg-git.git
             cd picom-jonaburg-git ; yes | makepkg -si ; cd ..
+        # VSCode #
+            git clone https://aur.archlinux.org/visual-studio-code-bin.git
+            cd visual-studio-code-bin ; yes | makepkg -si ; cd ..
+
     cd .. ; cd ..
 
 # Setup config files #
