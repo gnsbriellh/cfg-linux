@@ -31,7 +31,7 @@ echo   ; sleep 5 ;
     sudo pacman -S gnome-keyring                    --noconfirm # Gnome Keyring
     sudo pacman -S libsecret                        --noconfirm # Gnome Keyring
     sudo pacman -S libgnome-keyring                 --noconfirm # Gnome Keyring
-    sudo pacman -S sddm                             --noconfirm # Display Manager, aka Login Manager.
+    #sudo pacman -S sddm                             --noconfirm # Display Manager, aka Login Manager.
     sudo pacman -S network-manager-applet           --noconfirm # System Tray icon for networking.
     sudo pacman -S cbatticon                        --noconfirm # System Tray icon for laptop battery.
     sudo pacman -S volumeicon                       --noconfirm # System Tray icon for volume.
@@ -133,6 +133,10 @@ echo   ; sleep 5 ;
     mkdir -pv $PWD/Downloads/AUR
     cd $PWD/Downloads/AUR/
 
+        # ly #
+            git clone https://aur.archlinux.org/ly.git
+            cd ly ; yes | makepkg -si ; cd ..
+            sudo systemctl enable ly.service
         # Spotify #
             curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | gpg --import -
             git clone https://aur.archlinux.org/spotify.git
