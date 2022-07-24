@@ -42,8 +42,8 @@ echo   ; sleep 5 ;
     sudo pacman -S lib32-libva-mesa-driver          --noconfirm # GPU Driver.
     sudo pacman -S mesa-vdpau                       --noconfirm # GPU Driver.
     sudo pacman -S lib32-mesa-vdpau                 --noconfirm # GPU Driver.
-    sudo pacman -S udisks2                          --noconfirm # Manage removable storage devices.
-    sudo pacman -S udiskie                          --noconfirm # Auto mount removable sotrage devices.
+    #sudo pacman -S udisks2                          --noconfirm # Manage removable storage devices.
+    #sudo pacman -S udiskie                          --noconfirm # Auto mount removable sotrage devices.
     sudo pacman -S ufw                              --noconfirm # Firewall.
     sudo pacman -S unzip                            --noconfirm # Decompression Tool.
     sudo pacman -S wget                             --noconfirm # Software package for retrieving files using HTTP, HTTPS, FTP and FTPS.
