@@ -86,7 +86,6 @@ cat << "EOF"
      \$$    $$ \$$    $$| $$     \| $$  | $$                     \$$    $$| $$  | $$| $$     \| $$  | $$  | $$   |   $$ \ \$$    $$| $$  \$$$
       \$$$$$$   \$$$$$$  \$$$$$$$$ \$$   \$$                      \$$$$$$  \$$   \$$ \$$$$$$$$ \$$   \$$   \$$    \$$$$$$  \$$$$$$  \$$   \$$
 EOF
-
 echo   ; sleep 2 ;
 
 # Setup Home Folders #
@@ -110,18 +109,9 @@ echo   ; sleep 2 ;
     useradd --badname -m -G wheel -s /bin/bash "$SET_USER"
     usermod -c "$SET_USER_NAME" "$SET_USER"
 
-# Change Passwd from $SET_USER and root
+# Change Passwd from $SET_USER
     echo "Set password for "$SET_USER""
     passwd "$SET_USER"
-
-    while true; do
-        read -p "Would you like to set password for root user ? [Y/n] " yn
-        case $yn in
-            [Yy]* ) passwd root; break;;
-            [Nn]* ) echo "Not set !"; sleep 2 ; break;;
-            * ) echo "Please answer with Y[es] or N[o].";;
-        esac
-    done
 
 # PROMPT TO OPEN VISUDO WITH NANO #
     while true; do

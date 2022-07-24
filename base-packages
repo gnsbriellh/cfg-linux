@@ -19,6 +19,7 @@ echo   ; sleep 5 ;
 
 # Drivers and Tools #
 
+    sudo pacman -S archlinux-keyring                --noconfirm # Updates Arch linux Keyring
     sudo pacman -S man-db                           --noconfirm # Manual database.
     sudo pacman -S man-pages                        --noconfirm # Manual pages.
     sudo pacman -S dosfstools                       --noconfirm # Patitions/Disk formating tool.
@@ -26,8 +27,7 @@ echo   ; sleep 5 ;
     sudo pacman -S wpa_supplicant                   --noconfirm # Support for WPA, WPA2 and WPA3 (IEEE 802.11i).
     sudo pacman -S wireless_tools                   --noconfirm # Tools allowing to manipulate the Wireless Extensions.
     sudo pacman -S dialog                           --noconfirm # Dialog boxes from a shell script.
-    #sudo pacman -S polkit                           --noconfirm # Policy Kit.
-    #sudo pacman -S lxsession                        --noconfirm # Session starter and manager.
+    sudo pacman -S polkit                           --noconfirm # Policy Kit.
     sudo pacman -S sddm                             --noconfirm # Display Manager, aka Login Manager.
     sudo pacman -S network-manager-applet           --noconfirm # System Tray icon for networking.
     sudo pacman -S cbatticon                        --noconfirm # System Tray icon for laptop battery.
@@ -42,14 +42,15 @@ echo   ; sleep 5 ;
     sudo pacman -S lib32-libva-mesa-driver          --noconfirm # GPU Driver.
     sudo pacman -S mesa-vdpau                       --noconfirm # GPU Driver.
     sudo pacman -S lib32-mesa-vdpau                 --noconfirm # GPU Driver.
-    #sudo pacman -S udisks2                          --noconfirm # Manage removable storage devices.
-    #sudo pacman -S udiskie                          --noconfirm # Auto mount removable sotrage devices.
+    sudo pacman -S udisks2                          --noconfirm # Manage removable storage devices.
+    sudo pacman -S udiskie                          --noconfirm # Auto mount removable sotrage devices.
     sudo pacman -S ufw                              --noconfirm # Firewall.
     sudo pacman -S unzip                            --noconfirm # Decompression Tool.
     sudo pacman -S wget                             --noconfirm # Software package for retrieving files using HTTP, HTTPS, FTP and FTPS.
     sudo pacman -S curl                             --noconfirm # Software package for retrieving files using various protocols.
-        sudo systemctl enable ufw.service                       # Enable Firewall
-        sudo systemctl enable sddm.service                      # Enable Display Manager
+        sudo systemctl enable ufw.service                       # Enable Firewall Service
+        sudo ufw enable                                         # Enable Firewall
+        sudo systemctl enable sddm.service                      # Enable Display Manager Service
 
 # Audio Setup #
 
