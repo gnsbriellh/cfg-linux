@@ -146,7 +146,6 @@ echo   ; sleep 5 ;
 # Setup config files #
 
     sudo cp -rv $PWD/etc /
-    sudo cp -rv $PWD/usr /
 
 # Dotfiles #
 
