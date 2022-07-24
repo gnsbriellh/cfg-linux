@@ -28,6 +28,9 @@ echo   ; sleep 5 ;
     sudo pacman -S wireless_tools                   --noconfirm # Tools allowing to manipulate the Wireless Extensions.
     sudo pacman -S dialog                           --noconfirm # Dialog boxes from a shell script.
     sudo pacman -S polkit                           --noconfirm # Policy Kit.
+    sudo pacman -S gnome-keyring                    --noconfirm # Gnome Keyring
+    sudo pacman -S libsecret                        --noconfirm # Gnome Keyring
+    sudo pacman -S libgnome-keyring                 --noconfirm # Gnome Keyring
     sudo pacman -S sddm                             --noconfirm # Display Manager, aka Login Manager.
     sudo pacman -S network-manager-applet           --noconfirm # System Tray icon for networking.
     sudo pacman -S cbatticon                        --noconfirm # System Tray icon for laptop battery.
