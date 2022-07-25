@@ -38,13 +38,13 @@ echo   ; sleep 5 ;
     sudo pacman -S xorg                             --noconfirm # Display Server.
     sudo pacman -S mesa                             --noconfirm # GPU Driver.
     sudo pacman -S lib32-mesa                       --noconfirm # GPU Driver.
-    #sudo pacman -S xf86-video-amdgpu                --noconfirm # GPU Driver.
-    #sudo pacman -S vulkan-radeon                    --noconfirm # GPU Driver.
-    #sudo pacman -S lib32-vulkan-radeon              --noconfirm # GPU Driver.
-    #sudo pacman -S libva-mesa-driver                --noconfirm # GPU Driver.
-    #sudo pacman -S lib32-libva-mesa-driver          --noconfirm # GPU Driver.
-    #sudo pacman -S mesa-vdpau                       --noconfirm # GPU Driver.
-    #sudo pacman -S lib32-mesa-vdpau                 --noconfirm # GPU Driver.
+    sudo pacman -S xf86-video-amdgpu                --noconfirm # GPU Driver.
+    sudo pacman -S vulkan-radeon                    --noconfirm # GPU Driver.
+    sudo pacman -S lib32-vulkan-radeon              --noconfirm # GPU Driver.
+    sudo pacman -S libva-mesa-driver                --noconfirm # GPU Driver.
+    sudo pacman -S lib32-libva-mesa-driver          --noconfirm # GPU Driver.
+    sudo pacman -S mesa-vdpau                       --noconfirm # GPU Driver.
+    sudo pacman -S lib32-mesa-vdpau                 --noconfirm # GPU Driver.
     sudo pacman -S udisks2                          --noconfirm # Manage removable storage devices.
     sudo pacman -S udiskie                          --noconfirm # Auto mount removable sotrage devices.
     sudo pacman -S ufw                              --noconfirm # Firewall.
