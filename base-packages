@@ -38,13 +38,13 @@ echo   ; sleep 5 ;
     sudo pacman -S xorg                             --noconfirm # Display Server.
     sudo pacman -S mesa                             --noconfirm # GPU Driver.
     sudo pacman -S lib32-mesa                       --noconfirm # GPU Driver.
-    sudo pacman -S xf86-video-amdgpu                --noconfirm # GPU Driver.
-    sudo pacman -S vulkan-radeon                    --noconfirm # GPU Driver.
-    sudo pacman -S lib32-vulkan-radeon              --noconfirm # GPU Driver.
-    sudo pacman -S libva-mesa-driver                --noconfirm # GPU Driver.
-    sudo pacman -S lib32-libva-mesa-driver          --noconfirm # GPU Driver.
-    sudo pacman -S mesa-vdpau                       --noconfirm # GPU Driver.
-    sudo pacman -S lib32-mesa-vdpau                 --noconfirm # GPU Driver.
+    #sudo pacman -S xf86-video-amdgpu                --noconfirm # GPU Driver.
+    #sudo pacman -S vulkan-radeon                    --noconfirm # GPU Driver.
+    #sudo pacman -S lib32-vulkan-radeon              --noconfirm # GPU Driver.
+    #sudo pacman -S libva-mesa-driver                --noconfirm # GPU Driver.
+    #sudo pacman -S lib32-libva-mesa-driver          --noconfirm # GPU Driver.
+    #sudo pacman -S mesa-vdpau                       --noconfirm # GPU Driver.
+    #sudo pacman -S lib32-mesa-vdpau                 --noconfirm # GPU Driver.
     sudo pacman -S udisks2                          --noconfirm # Manage removable storage devices.
     sudo pacman -S udiskie                          --noconfirm # Auto mount removable sotrage devices.
     sudo pacman -S ufw                              --noconfirm # Firewall.
@@ -90,7 +90,7 @@ echo   ; sleep 5 ;
     sudo pacman -S piper                            --noconfirm # Mouse Software.
     sudo pacman -S steam                            --noconfirm # Steam Library.
     sudo pacman -S lutris                           --noconfirm # Software to setup non steam games.
-    sudo pacman -S code                             --noconfirm # Visual Studio Code (Code -OSS).
+    #sudo pacman -S code                             --noconfirm # Visual Studio Code (Code -OSS).
     sudo pacman -S discord                          --noconfirm # Discord.
     sudo pacman -S flameshot                        --noconfirm # Screenshot tool.
     sudo pacman -S thunderbird                      --noconfirm # E-mail client.
@@ -145,8 +145,8 @@ echo   ; sleep 5 ;
             git clone https://aur.archlinux.org/picom-jonaburg-git.git
             cd picom-jonaburg-git ; yes | makepkg -si ; cd ..
         # VSCode #
-            #git clone https://aur.archlinux.org/visual-studio-code-bin.git
-            #cd visual-studio-code-bin ; yes | makepkg -si ; cd ..
+            git clone https://aur.archlinux.org/visual-studio-code-bin.git
+            cd visual-studio-code-bin ; yes | makepkg -si ; cd ..
 
     cd .. ; cd ..
 
