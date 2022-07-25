@@ -59,14 +59,12 @@ echo   ; sleep 2 ;
     pacman -Syy --noconfirm
 
 # GRUB #
-    pacman -S               \
-    grub                    \
-    efibootmgr              \
-    os-prober               \
-    intel-ucode             \
-    networkmanager          --noconfirm
-
-    systemctl enable NetworkManager.service
+    pacman -S grub
+    pacman -S efibootmgr
+    pacman -S os-prober
+    pacman -S intel-ucode
+    pacman -S networkmanager
+        systemctl enable NetworkManager.service
 
     grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --recheck
     sed -i -e 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0.1/g' /etc/default/grub
