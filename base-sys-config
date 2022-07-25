@@ -98,6 +98,7 @@ echo   ; sleep 2 ;
     mkdir -v /etc/skel/Projects
     mkdir -v /etc/skel/Video\ Games
     mkdir -v /etc/skel/Repositories
+    mkdir -v /etc/skel/Virtual\ Machine
 
 # Read Username
     read -p "Enter USERNAME: " SET_USER ; echo  
